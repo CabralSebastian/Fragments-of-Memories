@@ -100,3 +100,6 @@ InitTestScene*.unity*
 
 # Visual Studio Code
 .vscode/
+
+# Local
+/Assets/Local
