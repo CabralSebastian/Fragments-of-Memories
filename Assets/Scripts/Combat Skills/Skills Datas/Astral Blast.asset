@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18db0e3e3231edefd8ab046b3e568eb5, type: 3}
+  m_Name: Astral Blast
+  m_EditorClassIdentifier: 
+  _proyectilePrefab: {fileID: 2661676721389075299, guid: d16e83d2e0dfcd2f6a2b6cfb840a398a, type: 3}
+  _name: Astral Blast
+  _description: Projectile of condensed astral energy.
+  _element: 0
+  _cooldownooldown: 0.3
