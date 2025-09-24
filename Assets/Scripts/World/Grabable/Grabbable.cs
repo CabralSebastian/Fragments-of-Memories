@@ -8,7 +8,7 @@ public class Grabbable : MonoBehaviour, IGrabbable
   [SerializeField] private float _dragSpeed = 10f;
   [SerializeField] private float _holdDistance = 10f;
 
-  private void Start()
+  protected virtual void Start()
   {
     _rigidbody = GetComponent<Rigidbody>();
   }

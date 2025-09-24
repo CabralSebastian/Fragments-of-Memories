@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainManu : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class MainManu : MonoBehaviour
 
 	public void PlayGame()
 	{
-		// GameManager.Instance.InitiateLevel(_FirstLevelData);
+		SceneManager.LoadScene("Start");
 	}
 
 	public void ExitGame()

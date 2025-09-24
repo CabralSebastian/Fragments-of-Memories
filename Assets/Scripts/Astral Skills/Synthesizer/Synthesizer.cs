@@ -13,8 +13,8 @@ public class Synthesizer : MonoBehaviour
 
   public SynthesizerState State { get; private set; } = SynthesizerState.OFF;
 
-  private readonly Collider[] _hits = new Collider[20];
   private readonly List<WorldObject> _overlaps = new();
+  private readonly List<ExplosiveFruit> _overlapsExplosiveFruits = new();
 
   private float ColliderRadius => _collider.radius * Mathf.Max(
     _collider.transform.lossyScale.x,
@@ -75,6 +75,11 @@ public class Synthesizer : MonoBehaviour
       worldObject.Synthetize(this);
       worldObject.IsSynthesized = true;
     }
+
+    foreach (ExplosiveFruit explosiveFruit in _overlapsExplosiveFruits)
+    {
+      explosiveFruit.IsSynthesized = true;
+    }
   }
 
   public void DeSynthetizeOverlaps()
@@ -99,27 +104,39 @@ public class Synthesizer : MonoBehaviour
     StartCoroutine(EndSynthesisCoroutine());
   }
 
-/*
-  private void CalculateOverlapedWorldObjects()
-  {
-    Vector3 center = _collider.transform.TransformPoint(_collider.center);
-    int hitCount = Physics.OverlapSphereNonAlloc(center, ColliderRadius, _hits, _layerMask);
+  /*
+    private void CalculateOverlapedWorldObjects()
+    {
+      Vector3 center = _collider.transform.TransformPoint(_collider.center);
+      int hitCount = Physics.OverlapSphereNonAlloc(center, ColliderRadius, _hits, _layerMask);
 
-    _overlaps.Clear();
-    for (int i = 0; i < hitCount; i++)
-      if (_hits[i].gameObject.TryGetComponent(out WorldObject worldObject))
-        _overlaps.Add(worldObject);
-  }
-*/
+      _overlaps.Clear();
+      for (int i = 0; i < hitCount; i++)
+        if (_hits[i].gameObject.TryGetComponent(out WorldObject worldObject))
+          _overlaps.Add(worldObject);
+    }
+  */
   private void OnTriggerEnter(Collider other)
   {
     if (other.gameObject.TryGetComponent(out WorldObject worldObject) && !_overlaps.Contains(worldObject))
       _overlaps.Add(worldObject);
+
+    if (other.gameObject.TryGetComponent(out ExplosiveFruit explosiveFruit))
+      if (State == SynthesizerState.ACTIVE)
+        explosiveFruit.IsSynthesized = true;
+      else
+        _overlapsExplosiveFruits.Add(explosiveFruit);
   }
 
   private void OnTriggerExit(Collider other)
   {
     if (other.gameObject.TryGetComponent(out WorldObject worldObject))
       _overlaps.Remove(worldObject);
+
+    if (other.gameObject.TryGetComponent(out ExplosiveFruit explosiveFruit))
+    {
+      _overlapsExplosiveFruits.Remove(explosiveFruit);
+      explosiveFruit.IsSynthesized = false;
+    }
   }
 }

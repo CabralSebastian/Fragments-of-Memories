@@ -1,14 +1,23 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(MeshRenderer))]
 public class ExplosiveFruit : Grabbable
 {
-  [SerializeField] private GameObject _explosionEffect;
-  private readonly WaitForSeconds _waitForExplosion = new(0.5f);
+  [SerializeField] private Texture _inestableTexture;
+  [SerializeField] private Explosion _explosionEffect;
+  private readonly WaitForSeconds _waitForExplosion = new(3f);
   public bool IsSynthesized { get; set; } = false;
   public bool IsAstralWorld => GameManager.Instance.IsAstralWorld == 1f;
 
+  private MeshRenderer _renderer;
   private bool _isStable = true;
+
+  protected override void Start()
+  {
+    base.Start();
+    _renderer = GetComponent<MeshRenderer>();
+  }
 
   protected override void Update()
   {
@@ -21,12 +30,15 @@ public class ExplosiveFruit : Grabbable
   private IEnumerator StartExplosion()
   {
     _isStable = false;
+    _renderer.material.SetTexture("_PhysicTexture", _inestableTexture);
+    _renderer.material.SetTexture("_AstralTexture", _inestableTexture);
+
     yield return _waitForExplosion;
 
     if (_isGrabbed)
       GameManager.Instance.Player.AstralSkills.Release();
-    
+
+    _explosionEffect.StartExplotion();
     gameObject.SetActive(false);
-    _explosionEffect.SetActive(true);
   }
 } 

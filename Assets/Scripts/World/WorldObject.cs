@@ -59,6 +59,9 @@ public class WorldObject : MonoBehaviour
   {
     Synthesizer synthesizer = GameManager.Instance.Synthesizer;
 
+    if (!synthesizer)
+      return;
+
     _material.SetFloat("_IsSphereActive", 1);
     _material.SetFloat("_SphereRadius", synthesizer.Radius);
     _material.SetVector("_SphereOrigin", synthesizer.Center);

@@ -10,7 +10,7 @@ public class CharacterMeditateState : BaseState
 
   public override void OnEnter()
   {
-    if (_controller.Staff.IsOnHand)
+    if (_controller.Staff && _controller.Staff.IsOnHand)
     {
       _controller.AstralSkills.Astralizing = true;
       Transition<CharacterStickStaffState>();
