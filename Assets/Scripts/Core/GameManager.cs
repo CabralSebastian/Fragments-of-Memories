@@ -18,12 +18,18 @@ public class GameManager : MonoBehaviour
     transform.SetParent(null);
     if (Instance && Instance != this)
     {
+      GameManager.Instance.UpdateWorldObjects(_worldRoot);
       Destroy(gameObject);
       return;
     }
 
     Instance = this;
     DontDestroyOnLoad(gameObject);
+  }
+
+  public void UpdateWorldObjects(GameObject worldRoot)
+  {
+    _worldObjects = new List<WorldObject>(worldRoot.GetComponentsInChildren<WorldObject>());
   }
 
   private void Start()
