@@ -17,19 +17,33 @@ public class BoatMW1 : BoatMW2
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            playerHasStepped = true;
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("StopPoint"))
         {
             direction = new Vector3(direction.x * -1, 0, 0);
+            
+        }
+        Debug.Log("Toco");
+
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerHasStepped = true;
+            playerIsStepping = true;
+            playerRb = collision.gameObject.GetComponent<Rigidbody>();
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerIsStepping = false;
         }
     }
 }

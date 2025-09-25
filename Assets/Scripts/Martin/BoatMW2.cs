@@ -5,10 +5,12 @@ public class BoatMW2 : MonoBehaviour
     [SerializeField] protected float speed;
 
     protected Vector3 direction;
-    
-    protected Rigidbody rb;
 
-    protected bool playerHasStepped;
+    protected Rigidbody rb;
+    protected Rigidbody playerRb;
+
+    protected bool playerHasStepped = false;
+    protected bool playerIsStepping = false;
 
     private void Start()
     {
@@ -26,6 +28,16 @@ public class BoatMW2 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerHasStepped = true;
+            playerIsStepping = true;
+            playerRb = collision.gameObject.GetComponent<Rigidbody>();
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerIsStepping = false;
         }
     }
 
@@ -33,7 +45,12 @@ public class BoatMW2 : MonoBehaviour
     {
         if (playerHasStepped)
         {
+            //transform.Translate(direction * speed * Time.deltaTime);
             rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
+        }
+        if (playerIsStepping) 
+        {
+            playerRb.MovePosition(playerRb.position + direction * speed * Time.deltaTime);
         }
     }
 }
