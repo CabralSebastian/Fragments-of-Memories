@@ -44,6 +44,9 @@ public class CharacterInteraction : MonoBehaviour
       }
     }
 
+    if (nearestInteractable.CompareTag("Staff") && GameManager.Instance.IsAstralWorld > 0)
+      nearestInteractable = null;
+
     return nearestInteractable;
   }
 

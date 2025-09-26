@@ -8,8 +8,9 @@ public class StaffStuckState : BaseState
   }
 
   public override void OnEnter()
-  { 
+  {
     _staff.SetInteractable(true);
+    _staff.Stick();
   }
 
   public override void OnExit()

@@ -7,9 +7,17 @@ public class StaffOnHandState : BaseState
     _staff = staff;
   }
 
-  public override void OnEnter() { }
+  public override void OnEnter()
+  { 
+    _staff.SetInteractable(false);
+    _staff.GoToHand();
 
-  public override void OnExit() { }
+  }
+
+  public override void OnExit()
+  { 
+    _staff.SetInteractable(true);
+  }
 
   public override void Update(float deltaTime)
   {

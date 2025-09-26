@@ -3,35 +3,53 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterMovement))]
 [RequireComponent(typeof(CharacterInteraction))]
 [RequireComponent(typeof(CharacterLook))]
+[RequireComponent(typeof(Health))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
-public class CharacterController : MonoBehaviour
+public class CharacterController : MonoBehaviour, IMortal
 {
 	private FSM _fms;
 	private CharacterMovement _movement;
 	private CharacterInteraction _interaction;
+	private Health _health;
 	private Rigidbody _rigidbody;
 	private Animator _animator;
 
+	public Health Health => _health;
 	public StaffController Staff;
 	public AstralSkills AstralSkills;
 
 	private bool _isPause = false;
 
+	public GameObject Boat { get; private set; }
+	public bool IsOnBoat => Boat != null;
+
 	/* Awake & Update */
 	public void Awake()
 	{
+		if (GameManager.Instance.Player != null)
+		{
+			GameManager.Instance.Player.TeleportTo(transform.position);
+			Destroy(gameObject);
+			return;
+		}
+		
+		GameManager.Instance.Player = this;
+		transform.SetParent(GameManager.Instance.transform);
+		
 		_movement = GetComponent<CharacterMovement>();
 		_interaction = GetComponent<CharacterInteraction>();
+		_health = GetComponent<Health>();
 		_animator = GetComponent<Animator>();
 		_rigidbody = GetComponent<Rigidbody>();
+
+		_health.SetMortal(this);
 
 		CharacterStateFactory stateFactory = new(this);
 		IState initialState = stateFactory.Create<CharacterIdleState>();
 
 		_fms = new FSM(stateFactory, initialState);
 
-		GameManager.Instance.Player = this;
 	}
 
 	public void Update()
@@ -86,7 +104,7 @@ public class CharacterController : MonoBehaviour
 
 		_movement.JumpToHeight(heightDifference);
 	}
-	
+
 	/* Interaction */
 	public bool Interacted => _interaction.Interacted && _interaction.ThereIsAnInteractable();
 	public void Interact() => _interaction.Interact();
@@ -96,4 +114,21 @@ public class CharacterController : MonoBehaviour
 	public void PlayAnimation(string animationName) => _animator.Play(animationName, 0, 0f);
 	public void SetAnimationSpeed(float speed) => _animator.speed = speed;
 	public bool IsAnimationFinished(string animationName) => !(AnimationStateInfo.normalizedTime < 1f || !AnimationStateInfo.IsName(animationName));
+
+	/* Health */
+	public void Die() => GameManager.Instance.DeathReset();
+	public void OnTakeDamage(float damage) => Debug.Log($"Taking damage: {damage}");
+
+	/* Boat */
+	public void BoardBoat(GameObject boat) 
+	{ 
+		transform.SetParent(boat.transform);
+		Boat = boat;
+	}
+
+	public void LeaveBoat() 
+	{ 
+		transform.SetParent(null);
+		Boat = null;
+	}
 }

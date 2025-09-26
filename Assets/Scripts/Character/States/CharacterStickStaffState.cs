@@ -17,7 +17,7 @@ public class CharacterStickStaffState : BaseState
   public override void OnExit()
   {
     _controller.EnableMovement();
-    _controller.Staff.Stick();
+    _controller.Staff.ChangeToStuck();
     _controller.AstralSkills.Astralizing = false;
   }
 
