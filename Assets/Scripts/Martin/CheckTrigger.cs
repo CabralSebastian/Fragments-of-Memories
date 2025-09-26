@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class CheckTrigger : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        GameManager.Instance.Player.BoardBoat(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        GameManager.Instance.Player.LeaveBoat();
     }
 }

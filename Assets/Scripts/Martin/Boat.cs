@@ -61,18 +61,4 @@ public class Boat : MonoBehaviour
         float distanceToWaypoint = Vector3.Distance(_previousWaypoint.position, _targetWaypoint.position);
         _timeToWaypoint = distanceToWaypoint / _speed;
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //_playerRb = other.gameObject.GetComponent<Rigidbody>();
-        //other.transform.SetParent(transform);
-        _player = other.gameObject.GetComponent<Rigidbody>();
-        
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        //other.transform.SetParent(null);
-        _player = null;
-    }
 }
