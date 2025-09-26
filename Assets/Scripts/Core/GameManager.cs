@@ -69,8 +69,14 @@ public class GameManager : MonoBehaviour
     Cursor.visible = true;
   }
 
-  public void Reset()
+  public void WaterReset()
   {
+    Player.TeleportTo(_spawnPoint.position);
+  }
+
+  public void DeathReset()
+  {
+    Player.Health.FillToMax();
     Player.TeleportTo(_spawnPoint.position);
   }
 }

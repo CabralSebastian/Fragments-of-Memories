@@ -10,6 +10,7 @@ public class Synthesizer : MonoBehaviour
   [SerializeField] private LayerMask _layerMask;
   [SerializeField] private float _expansionDuration = 1f;
   [SerializeField] private float _contractionDuration = 0.5f;
+  [SerializeField] private GameObject _synthesisEffect;
 
   public SynthesizerState State { get; private set; } = SynthesizerState.OFF;
 
@@ -30,6 +31,7 @@ public class Synthesizer : MonoBehaviour
     _collider = GetComponent<SphereCollider>();
     _collider.isTrigger = true;
     GameManager.Instance.Synthesizer = this;
+    _synthesisEffect.transform.localScale = Vector3.zero;
   }
 
   private IEnumerator StartSynthesisCoroutine()
@@ -41,6 +43,7 @@ public class Synthesizer : MonoBehaviour
     {
       yield return null;
       _radius = Mathf.Lerp(0, ColliderRadius, timer / _expansionDuration);
+      _synthesisEffect.transform.localScale = timer / _expansionDuration * Vector3.one;
       timer += Time.deltaTime;
     }
 
@@ -59,6 +62,7 @@ public class Synthesizer : MonoBehaviour
     {
       yield return null;
       _radius = Mathf.Lerp(ColliderRadius, 0, timer / _contractionDuration);
+      _synthesisEffect.transform.localScale = (1 - timer / _contractionDuration) * Vector3.one;
       timer += Time.deltaTime;
     }
 
@@ -94,7 +98,6 @@ public class Synthesizer : MonoBehaviour
   public void StartSynthesis()
   {
     Debug.Log("Starting Synthesis...");
-    // CalculateOverlapedWorldObjects();
     StartCoroutine(StartSynthesisCoroutine());
   }
 
@@ -104,18 +107,6 @@ public class Synthesizer : MonoBehaviour
     StartCoroutine(EndSynthesisCoroutine());
   }
 
-  /*
-    private void CalculateOverlapedWorldObjects()
-    {
-      Vector3 center = _collider.transform.TransformPoint(_collider.center);
-      int hitCount = Physics.OverlapSphereNonAlloc(center, ColliderRadius, _hits, _layerMask);
-
-      _overlaps.Clear();
-      for (int i = 0; i < hitCount; i++)
-        if (_hits[i].gameObject.TryGetComponent(out WorldObject worldObject))
-          _overlaps.Add(worldObject);
-    }
-  */
   private void OnTriggerEnter(Collider other)
   {
     if (other.gameObject.TryGetComponent(out WorldObject worldObject) && !_overlaps.Contains(worldObject))

@@ -18,7 +18,10 @@ public class AstralizeSkill : MonoBehaviour
 			return;
 
 		_meditatingWitch.SetActive(true);
-		_meditatingWitch.transform.SetParent(null);
+		if (_character.IsOnBoat)
+			_meditatingWitch.transform.SetParent(_character.Boat.transform);
+		else
+			_meditatingWitch.transform.SetParent(null);
 
 		// Set Astral Shader
 		GameManager.Instance.Astralize();

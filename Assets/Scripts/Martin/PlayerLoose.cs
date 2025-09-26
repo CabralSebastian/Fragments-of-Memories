@@ -12,7 +12,7 @@ public class PlayerLoose : MonoBehaviour
         if (_PlayerHealth <= 0)
         {
             healthManager.SetHealth(3);
-            GameManager.Instance.Reset();
+            GameManager.Instance.WaterReset();
         }
     }
 }

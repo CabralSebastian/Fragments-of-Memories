@@ -7,6 +7,7 @@ public class StaffController : Interactable
 	private BoxCollider _collider;
 	[SerializeField] private Synthesizer _synthesizer;
 	[SerializeField] private KeyCode _interactionKey = KeyCode.E;
+	[SerializeField] private bool _isAdquired = true;
 	[SerializeField] private GameObject _model;
 	private MeshRenderer _modelMesh;
 	[SerializeField] private GameObject _handStaff;
@@ -22,8 +23,7 @@ public class StaffController : Interactable
 		_modelMesh = _model.GetComponent<MeshRenderer>();
 		_collider = GetComponent<BoxCollider>();
 		StaffStateFactory stateFactory = new(this);
-		IState initialState = stateFactory.Create<StaffOffState>();
-
+		IState initialState = _isAdquired ? stateFactory.Create<StaffOnHandState>() : stateFactory.Create<StaffOffState>();
 		_fms = new FSM(stateFactory, initialState);
 		_synthesizer.enabled = false;
 	}
@@ -37,7 +37,7 @@ public class StaffController : Interactable
 
 	public override void Interact()
 	{
-		Grab();
+		ChangeToOnHand();
 	}
 
 	public void SetInteractable(bool interactable)
@@ -45,12 +45,16 @@ public class StaffController : Interactable
 		gameObject.layer = interactable ? LayerMask.NameToLayer("Interactable") : LayerMask.NameToLayer("Default");
 	}
 
-	private void Grab()
+	private void ChangeToOnHand()
 	{
 		if (_fms.CurrentState is not StaffOffState && _fms.CurrentState is not StaffStuckState)
 			return;
 
 		_fms.ChangeState<StaffOnHandState>();
+	}
+
+	public void GoToHand()
+	{
 		transform.SetParent(_stickPosition);
 		transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
 
@@ -59,12 +63,16 @@ public class StaffController : Interactable
 		_handStaff.SetActive(true);
 	}
 
-	public void Stick()
+	public void ChangeToStuck()
 	{
 		if (_fms.CurrentState is not StaffOnHandState)
 			return;
 
 		_fms.ChangeState<StaffStuckState>();
+	}
+
+	public void Stick()
+	{
 		transform.SetParent(null);
 
 		_modelMesh.enabled = true;

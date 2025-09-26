@@ -1,19 +1,27 @@
-using System.Collections;
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 
 public class AimCamera : MonoBehaviour
 {
-  private static readonly WaitForSeconds _waitForSeconds0_25 = new(0.25f);
-  [SerializeField] private CinemachineCamera _moveCamera;
+	[SerializeField] private Camera _brainCamera;
+	[SerializeField] private CinemachineCamera _moveCamera;
 	[SerializeField] private CinemachineCamera _aimCamera;
 	[SerializeField] private GameObject _crosshair;
+	[SerializeField] private LayerMask _seeThroughLayerMask;
 	private bool _isAiming = false;
+	public bool IsAiming => _isAiming;
+
+	private readonly RaycastHit[] _hits = new RaycastHit[10];
+	private readonly Stack<MeshRenderer> _meshRenderers = new();
 
 	private void Update()
 	{
 		if (Input.GetMouseButtonDown(1))
 			ToggleAim();
+
+		ResetSeeThrough();
+		SeeThrough();
 	}
 
 	private void ToggleAim()
@@ -22,22 +30,33 @@ public class AimCamera : MonoBehaviour
 
 		_moveCamera.Priority = _isAiming ? 0 : 10;
 		_aimCamera.Priority = _isAiming ? 10 : 0;
-
-		// UpdateCrosshair();
 	}
 
-	private void UpdateCrosshair()
+	private void SeeThrough()
 	{
-		if (_isAiming)
-			StartCoroutine(WaitTransitionAndActiveCrosshair());
-		else
-			_crosshair.SetActive(false);
+		Vector3 origin = _brainCamera.transform.position;
+		Vector3 target = GameManager.Instance.Player.transform.position + Vector3.up;
+		Vector3 diference = target - origin;
+		Vector3 direction = diference.normalized;
+		float distance = diference.magnitude * 0.9f;
+
+		Ray ray = new(origin, direction);
+
+		int hitCount = Physics.RaycastNonAlloc(ray, _hits, distance, _seeThroughLayerMask);
+		Debug.DrawRay(origin, direction * distance, Color.red);
+
+
+		for (int i = 0; i < hitCount; i++)
+			if (_hits[i].transform.gameObject.TryGetComponent(out MeshRenderer meshRenderer) && meshRenderer.enabled)
+			{
+				_meshRenderers.Push(meshRenderer);
+				meshRenderer.enabled = false;
+			}
 	}
 
-	private IEnumerator WaitTransitionAndActiveCrosshair()
+	public void ResetSeeThrough()
 	{
-		yield return _waitForSeconds0_25;
-		
-		_crosshair.SetActive(true);
+		while (_meshRenderers.Count > 0)
+			_meshRenderers.Pop().enabled = true;
 	}
 }
