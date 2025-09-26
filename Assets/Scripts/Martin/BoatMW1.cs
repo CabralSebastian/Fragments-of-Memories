@@ -24,9 +24,6 @@ public class BoatMW1 : BoatMW2
             direction = new Vector3(direction.x * -1, 0, 0);
             
         }
-        Debug.Log("Toco");
-
-
     }
 
     private void OnCollisionEnter(Collision collision)
