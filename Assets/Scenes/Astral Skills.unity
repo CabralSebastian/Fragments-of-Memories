@@ -790,17 +790,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6626691611824506192, guid: 1c88a466d91451994984a6ad55ff7dc9, type: 3}
   m_PrefabInstance: {fileID: 738138904}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1417526408 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4797765658754017900, guid: 5b211ef920557a12895db077394e4b5e, type: 3}
-  m_PrefabInstance: {fileID: 479505700206531146}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f96e0f10101bdcf449c0462720670740, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1476155046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,6 +1149,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5740438657193465962, guid: 5b211ef920557a12895db077394e4b5e, type: 3}
+      propertyPath: _explosiveFruitPrefab
+      value: 
+      objectReference: {fileID: 5545981977073021431, guid: cf8f4b3c43a79371fb3ca392d23ad2d5, type: 3}
     - target: {fileID: 6726564661856048003, guid: 5b211ef920557a12895db077394e4b5e, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -1175,7 +1168,7 @@ PrefabInstance:
     - target: {fileID: 7928898592304842806, guid: 5b211ef920557a12895db077394e4b5e, type: 3}
       propertyPath: _explosionEffect
       value: 
-      objectReference: {fileID: 1417526408}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

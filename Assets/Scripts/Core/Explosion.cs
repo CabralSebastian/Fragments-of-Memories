@@ -41,7 +41,7 @@ public class Explosion : MonoBehaviour
 
     DamageOverlaps();
     _explosionEffect.SetActive(false);
-    gameObject.SetActive(false);
+    Destroy(gameObject);
   }
 
   private void DamageOverlaps()

@@ -7,6 +7,7 @@ public class ExplosiveFruit : Grabbable
   [SerializeField] private Texture _inestableTexture;
   [SerializeField] private Explosion _explosionEffect;
   private readonly WaitForSeconds _waitForExplosion = new(3f);
+  private ExplosiveFlower _flower;
   public bool IsSynthesized { get; set; } = false;
   public bool IsAstralWorld => GameManager.Instance.IsAstralWorld == 1f;
 
@@ -27,6 +28,11 @@ public class ExplosiveFruit : Grabbable
       StartCoroutine(StartExplosion());
   }
 
+  public void SetExplosiveFlower(ExplosiveFlower flower)
+  {
+    _flower = flower;
+  }
+
   private IEnumerator StartExplosion()
   {
     _isStable = false;
@@ -39,6 +45,7 @@ public class ExplosiveFruit : Grabbable
       GameManager.Instance.Player.AstralSkills.Release();
 
     _explosionEffect.StartExplotion();
-    gameObject.SetActive(false);
+    _flower.SpawnExplosiveFruit();
+    Destroy(gameObject);
   }
 } 
