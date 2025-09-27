@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
   public static GameManager Instance;
-  public Camera MainCamera;
+  [HideInInspector] public Camera MainCamera;
   [HideInInspector] public CharacterController Player;
   [HideInInspector] public float IsAstralWorld = 0;
   [HideInInspector] public PeepSkill Peep;
