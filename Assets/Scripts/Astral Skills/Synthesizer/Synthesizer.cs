@@ -30,7 +30,6 @@ public class Synthesizer : MonoBehaviour
   {
     _collider = GetComponent<SphereCollider>();
     _collider.isTrigger = true;
-    GameManager.Instance.Synthesizer = this;
     _synthesisEffect.transform.localScale = Vector3.zero;
   }
 

@@ -5,6 +5,7 @@ public class AstralSkills : MonoBehaviour
   [Header("Peep")]
   [SerializeField] private KeyCode _peepKey = KeyCode.Q;
   [SerializeField] private PeepSkill _peepSkill;
+  public PeepSkill Peep => _peepSkill;
   private bool _isPeepActive = false;
 
   [Header("Grab")]

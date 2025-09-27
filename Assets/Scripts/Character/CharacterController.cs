@@ -1,3 +1,4 @@
+using System.IO.Compression;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterMovement))]
@@ -16,7 +17,7 @@ public class CharacterController : MonoBehaviour, IMortal
 	private Animator _animator;
 
 	public Health Health => _health;
-	public StaffController Staff;
+	public StaffController Staff => GameManager.Instance.Staff;
 	public AstralSkills AstralSkills;
 
 	private bool _isPause = false;
@@ -30,6 +31,8 @@ public class CharacterController : MonoBehaviour, IMortal
 		if (GameManager.Instance.Player != null)
 		{
 			GameManager.Instance.Player.TeleportTo(transform.position);
+			// GameManager.Instance.Player.Staff.transform.position = Staff.transform.position;
+
 			Destroy(gameObject);
 			return;
 		}

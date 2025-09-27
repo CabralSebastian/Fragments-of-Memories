@@ -515,6 +515,7 @@ Transform:
   - {fileID: 1056484139721091626}
   - {fileID: 2561169926376729684}
   - {fileID: 9126793430021231024}
+  - {fileID: 3743343061631236193}
   m_Father: {fileID: 978226460013330619}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5911032854035008705
@@ -583,8 +584,6 @@ MonoBehaviour:
   MainCamera: {fileID: 0}
   Player: {fileID: 0}
   IsAstralWorld: 0
-  Peep: {fileID: 5452309170452763004}
-  Synthesizer: {fileID: 0}
   _spawnPoint: {fileID: 0}
   _worldRoot: {fileID: 0}
 --- !u!1 &6406843714747735838
@@ -699,7 +698,6 @@ Transform:
   - {fileID: 7674490430592245765}
   - {fileID: 7599260081382717520}
   - {fileID: 7344809219610160983}
-  - {fileID: 3743343061631236193}
   - {fileID: 6954866902590305170}
   - {fileID: 8949109528281694591}
   m_Father: {fileID: 0}
@@ -881,17 +879,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8838506586428956266, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
   m_PrefabInstance: {fileID: 4448990013226814535}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5452309170452763004 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8509413601391680827, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
-  m_PrefabInstance: {fileID: 4448990013226814535}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fb7aeff7695f4cffa2b65e4aec6a170, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6954866902590305170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6717499554798845909, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
@@ -908,7 +895,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 978226460013330619}
+    m_TransformParent: {fileID: 7344809219610160983}
     m_Modifications:
     - target: {fileID: 1217955590024494987, guid: 710276bbf8607a470bfa60a05f039231, type: 3}
       propertyPath: m_Name

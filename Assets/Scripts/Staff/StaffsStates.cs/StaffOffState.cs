@@ -14,7 +14,7 @@ public class StaffOffState : BaseState
 
   public override void OnExit()
   {
-    GameManager.Instance.Player.Staff = _staff;
+    _staff.IsAdquired = true;
     _staff.SetInteractable(false);
   }
 

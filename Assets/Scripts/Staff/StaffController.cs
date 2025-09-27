@@ -7,7 +7,7 @@ public class StaffController : Interactable
 	private BoxCollider _collider;
 	[SerializeField] private Synthesizer _synthesizer;
 	[SerializeField] private KeyCode _interactionKey = KeyCode.E;
-	[SerializeField] private bool _isAdquired = true;
+	public bool IsAdquired = false;
 	[SerializeField] private GameObject _model;
 	private MeshRenderer _modelMesh;
 	[SerializeField] private GameObject _handStaff;
@@ -20,10 +20,22 @@ public class StaffController : Interactable
 
 	public void Awake()
 	{
+		if (GameManager.Instance.Staff != null)
+		{
+			if (!GameManager.Instance.Staff.IsAdquired)
+				GameManager.Instance.Staff.transform.position = transform.position;
+
+			Destroy(gameObject);
+			return;
+		}
+
+		GameManager.Instance.Staff = this;
+		transform.SetParent(GameManager.Instance.transform);
+
 		_modelMesh = _model.GetComponent<MeshRenderer>();
 		_collider = GetComponent<BoxCollider>();
 		StaffStateFactory stateFactory = new(this);
-		IState initialState = _isAdquired ? stateFactory.Create<StaffOnHandState>() : stateFactory.Create<StaffOffState>();
+		IState initialState = IsAdquired ? stateFactory.Create<StaffOnHandState>() : stateFactory.Create<StaffOffState>();
 		_fms = new FSM(stateFactory, initialState);
 		_synthesizer.enabled = false;
 	}

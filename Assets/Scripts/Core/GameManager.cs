@@ -6,9 +6,10 @@ public class GameManager : MonoBehaviour
   public static GameManager Instance;
   [HideInInspector] public Camera MainCamera;
   [HideInInspector] public CharacterController Player;
+  [HideInInspector] public StaffController Staff;
   [HideInInspector] public float IsAstralWorld = 0;
-  [HideInInspector] public PeepSkill Peep;
-  [HideInInspector] public Synthesizer Synthesizer;
+  public PeepSkill Peep => Player.AstralSkills.Peep;
+  public Synthesizer Synthesizer => Player.Staff.Synthesizer;
   [SerializeField] private Transform _spawnPoint;
   [SerializeField] private GameObject _worldRoot;
   private List<WorldObject> _worldObjects;
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
     transform.SetParent(null);
     if (Instance && Instance != this)
     {
-      GameManager.Instance.UpdateWorldObjects(_worldRoot);
+      GameManager.Instance.UpdateGameManager(_worldRoot, _spawnPoint);
       Destroy(gameObject);
       return;
     }
@@ -27,9 +28,10 @@ public class GameManager : MonoBehaviour
     DontDestroyOnLoad(gameObject);
   }
 
-  public void UpdateWorldObjects(GameObject worldRoot)
+  public void UpdateGameManager(GameObject worldRoot, Transform spawnPoint)
   {
     _worldObjects = new List<WorldObject>(worldRoot.GetComponentsInChildren<WorldObject>());
+    _spawnPoint = spawnPoint;
   }
 
   private void Start()

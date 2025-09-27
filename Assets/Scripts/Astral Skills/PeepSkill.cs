@@ -16,11 +16,6 @@ public class PeepSkill : MonoBehaviour
   public float IsActive => _isActive;
   public float Radius => _activeRadius;
 
-  private void Start()
-  {
-    GameManager.Instance.Peep = this;
-  }
-
   public void Activate()
   {
     StartCoroutine(ActivateCoroutine());
