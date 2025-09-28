@@ -119,7 +119,7 @@ public class CharacterController : MonoBehaviour, IMortal
 	public bool IsAnimationFinished(string animationName) => !(AnimationStateInfo.normalizedTime < 1f || !AnimationStateInfo.IsName(animationName));
 
 	/* Health */
-	public void Die() => GameManager.Instance.DeathReset();
+	public void Die() => GameManager.Instance.Lose();
 	public void OnTakeDamage(float damage) => Debug.Log($"Taking damage: {damage}");
 
 	/* Boat */

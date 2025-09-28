@@ -1,16 +1,15 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LoseScreen : MonoBehaviour
 {
 	public void ReStartGame()
 	{
-		SceneManager.LoadScene("Level 1");
+		GameManager.RestartGame();
 	}
 
 	public void MainMenu()
 	{
-		SceneManager.LoadScene("Main Menu");
+		GameManager.MainMenu();
 	}
 
 	public void ExitGame()

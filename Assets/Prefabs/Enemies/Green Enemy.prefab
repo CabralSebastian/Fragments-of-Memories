@@ -302,10 +302,10 @@ MonoBehaviour:
     m_Bits: 1024
   _sightRadius: 25
   _chaseRadius: 25
-  _attackRadius: 15
+  _attackRadius: 10
   _drawSightGizmos: 0
   _drawChaseGizmos: 0
-  _drawAttackGizmos: 0
+  _drawAttackGizmos: 1
 --- !u!114 &7248256338935176047
 MonoBehaviour:
   m_ObjectHideFlags: 0

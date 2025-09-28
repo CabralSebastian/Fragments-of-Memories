@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
   [HideInInspector] public float IsAstralWorld = 0;
   public PeepSkill Peep => Player.AstralSkills.Peep;
   public Synthesizer Synthesizer => Player.Staff.Synthesizer;
+  [SerializeField] private GameObject LoseScreen;
+  [SerializeField] private GameObject WinScreen;
   [SerializeField] private Transform _spawnPoint;
   [SerializeField] private GameObject _worldRoot;
   private List<WorldObject> _worldObjects;
@@ -27,9 +30,11 @@ public class GameManager : MonoBehaviour
       Destroy(gameObject);
       return;
     }
+
     _worldObjects = new List<WorldObject>(_worldRoot.GetComponentsInChildren<WorldObject>());
 
     Instance = this;
+    SceneManager.sceneLoaded += OnSceneLoaded;
     DontDestroyOnLoad(gameObject);
   }
 
@@ -76,9 +81,43 @@ public class GameManager : MonoBehaviour
     Player.TeleportTo(_spawnPoint.position);
   }
 
-  public void DeathReset()
+  /* UI-UX */
+  public static void RestartGame()
   {
-    Player.Health.FillToMax();
-    Player.TeleportTo(_spawnPoint.position);
+    Time.timeScale = 1f;
+    // Destroy(Instance);
+    SceneManager.LoadScene("Start");
+  }
+
+  public static void MainMenu()
+  {
+    Time.timeScale = 1f;
+    // Destroy(Instance);
+    SceneManager.LoadScene("Main Menu");
+  }
+
+  public void Lose()
+  {
+    Time.timeScale = 0f;
+    Player.SetPause(true);
+    UnlockCursor();
+
+    LoseScreen.SetActive(true);
+  }
+
+  internal void Win()
+  {
+    Time.timeScale = 0f;
+    Player.SetPause(true);
+    UnlockCursor();
+
+    WinScreen.SetActive(true);
+  }
+
+  private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+  {
+    string sceneName = SceneManager.GetActiveScene().name;
+    if (sceneName == "Main Menu")
+      Destroy(gameObject);
   }
 }

@@ -182,7 +182,7 @@ MonoBehaviour:
     m_Bits: 1024
   _sightRadius: 15
   _chaseRadius: 25
-  _attackRadius: 3
+  _attackRadius: 5
   _drawSightGizmos: 0
   _drawChaseGizmos: 0
   _drawAttackGizmos: 0
