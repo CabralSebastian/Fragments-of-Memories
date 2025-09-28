@@ -19,10 +19,11 @@ public class GameManager : MonoBehaviour
     transform.SetParent(null);
     if (Instance && Instance != this)
     {
-      GameManager.Instance.UpdateGameManager(_worldRoot, _spawnPoint);
+      Instance.UpdateGameManager(_worldRoot, _spawnPoint);
       Destroy(gameObject);
       return;
     }
+    _worldObjects = new List<WorldObject>(_worldRoot.GetComponentsInChildren<WorldObject>());
 
     Instance = this;
     DontDestroyOnLoad(gameObject);
@@ -32,11 +33,6 @@ public class GameManager : MonoBehaviour
   {
     _worldObjects = new List<WorldObject>(worldRoot.GetComponentsInChildren<WorldObject>());
     _spawnPoint = spawnPoint;
-  }
-
-  private void Start()
-  {
-    _worldObjects = new List<WorldObject>(_worldRoot.GetComponentsInChildren<WorldObject>());
   }
 
   public void Astralize()

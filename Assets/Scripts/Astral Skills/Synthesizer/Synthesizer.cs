@@ -33,6 +33,12 @@ public class Synthesizer : MonoBehaviour
     _synthesisEffect.transform.localScale = Vector3.zero;
   }
 
+  public void ResetOverlaps()
+  {
+    _overlaps.Clear();
+    _overlapsExplosiveFruits.Clear();
+  }
+
   private IEnumerator StartSynthesisCoroutine()
   {
     State = SynthesizerState.ACTIVATING;
@@ -80,9 +86,9 @@ public class Synthesizer : MonoBehaviour
     }
 
     foreach (ExplosiveFruit explosiveFruit in _overlapsExplosiveFruits)
-    {
-      explosiveFruit.IsSynthesized = true;
-    }
+      if (explosiveFruit)
+        explosiveFruit.IsSynthesized = true;
+    
   }
 
   public void DeSynthetizeOverlaps()

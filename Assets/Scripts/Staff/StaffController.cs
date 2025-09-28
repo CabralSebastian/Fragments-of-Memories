@@ -22,6 +22,8 @@ public class StaffController : Interactable
 	{
 		if (GameManager.Instance.Staff != null)
 		{
+			GameManager.Instance.Staff.Synthesizer.ResetOverlaps();
+			
 			if (!GameManager.Instance.Staff.IsAdquired)
 				GameManager.Instance.Staff.transform.position = transform.position;
 

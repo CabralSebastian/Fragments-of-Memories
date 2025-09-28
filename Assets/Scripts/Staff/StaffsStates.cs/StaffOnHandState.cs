@@ -11,7 +11,6 @@ public class StaffOnHandState : BaseState
   { 
     _staff.SetInteractable(false);
     _staff.GoToHand();
-
   }
 
   public override void OnExit()
