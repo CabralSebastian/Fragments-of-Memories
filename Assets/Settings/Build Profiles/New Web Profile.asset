@@ -17,16 +17,24 @@ MonoBehaviour:
   m_Subtarget: 0
   m_PlatformId: 84a3bb9e7420477f885e98145999eb20
   m_PlatformBuildProfile:
-    rid: 3705671494810468414
+HEAD
+
+
+    rid: 8715518162075648062
   m_OverrideGlobalSceneList: 0
   m_Scenes: []
-  m_ScriptingDefines: []
+  m_ScriptingDefines:
+  - 
+b02fb4b9d6794fd2f104f81d4f5eb6136abab16b
   m_PlayerSettingsYaml:
     m_Settings: []
   references:
     version: 2
     RefIds:
-    - rid: 3705671494810468414
+HEAD
+
+    - rid: 8715518162075648062
+b02fb4b9d6794fd2f104f81d4f5eb6136abab16b
       type: {class: WebGLPlatformSettings, ns: UnityEditor.WebGL, asm: UnityEditor.WebGL.Extensions}
       data:
         m_Development: 0

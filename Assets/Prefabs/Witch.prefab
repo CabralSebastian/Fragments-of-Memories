@@ -597,6 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AstralSkills: {fileID: 9140676770962065335}
+  _astralRay: {fileID: 279516506577064686}
 --- !u!114 &392617577713254501
 MonoBehaviour:
   m_ObjectHideFlags: 0

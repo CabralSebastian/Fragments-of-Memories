@@ -19,6 +19,8 @@ public class CharacterController : MonoBehaviour, IMortal
 	public Health Health => _health;
 	public StaffController Staff => GameManager.Instance.Staff;
 	public AstralSkills AstralSkills;
+	[SerializeField] private AstralRay _astralRay;
+
 
 	private bool _isPause = false;
 
@@ -72,6 +74,7 @@ public class CharacterController : MonoBehaviour, IMortal
 		_movement.enabled = enabled;
 		_interaction.enabled = enabled;
 		// _animator.enabled = enabled;
+		_astralRay.enabled = enabled;
 		Staff.enabled = enabled;
 		AstralSkills.enabled = enabled;
 	}

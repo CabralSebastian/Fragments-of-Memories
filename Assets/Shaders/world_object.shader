@@ -38,7 +38,7 @@ Shader "Custom/WorldObjectShaderURP"
 			HLSLPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			#pragma target 3.0
+			#pragma target 2.0
 
 			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
