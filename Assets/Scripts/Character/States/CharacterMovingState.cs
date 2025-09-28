@@ -25,7 +25,7 @@ public class CharacterMovingState : BaseState
     else if (!_controller.IsGrounded)
       Transition<CharacterFallState>();
 
-    else if (_controller.AstralSkills.AstralizeKeyPressed)
+    else if (_controller.AstralSkills.AstralizeKeyPressed && GameManager.Instance.RememberAstralize)
       if (!_controller.AstralSkills.IsAstralized)
         Transition<CharacterMeditateState>();
       else

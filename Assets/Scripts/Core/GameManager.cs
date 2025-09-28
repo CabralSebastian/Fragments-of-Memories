@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
   [SerializeField] private GameObject _worldRoot;
   private List<WorldObject> _worldObjects;
 
+  public bool RememberAstralize { get; set; } = false;
+  public bool RememberIvyLabyrinth { get; set; } = false;
+  public bool RememberWaterfalls { get; set; } = false;
+
   private void Awake()
   {
     transform.SetParent(null);

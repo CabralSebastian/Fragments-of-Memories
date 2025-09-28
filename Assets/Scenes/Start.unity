@@ -2253,6 +2253,7 @@ GameObject:
   - component: {fileID: 1108664704}
   - component: {fileID: 1108664703}
   - component: {fileID: 1108664702}
+  - component: {fileID: 1108664707}
   m_Layer: 0
   m_Name: Start_To_Mystic_Waterfall_1_Transition
   m_TagString: Untagged
@@ -2317,7 +2318,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1f7f0b396b4e6b34c8cfed7611889b4b, type: 2}
+  - {fileID: 2100000, guid: bdfaad883090afaa6abd9b342085eb8f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2362,6 +2363,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 898381183}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1108664707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108664701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5d543f22386d47efa014f4830e4747c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1275152926
 GameObject:
   m_ObjectHideFlags: 0
@@ -2529,6 +2542,7 @@ GameObject:
   - component: {fileID: 1596584439}
   - component: {fileID: 1596584438}
   - component: {fileID: 1596584437}
+  - component: {fileID: 1596584442}
   m_Layer: 0
   m_Name: Start_To_Ivy_Labyrinth_Transition
   m_TagString: Untagged
@@ -2593,7 +2607,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1f7f0b396b4e6b34c8cfed7611889b4b, type: 2}
+  - {fileID: 2100000, guid: 9727a1b9b55cbbd00b59daf1f009c9d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2638,6 +2652,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 898381183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596584442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596584436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aaed2597d15f9626a89a58387c6cee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1604334520
 GameObject:
   m_ObjectHideFlags: 0

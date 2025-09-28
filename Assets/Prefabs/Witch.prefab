@@ -596,7 +596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461bc141b42e408528f4e4458ba27581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Staff: {fileID: 0}
   AstralSkills: {fileID: 9140676770962065335}
 --- !u!114 &392617577713254501
 MonoBehaviour:

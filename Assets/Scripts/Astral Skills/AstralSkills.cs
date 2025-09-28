@@ -29,7 +29,7 @@ public class AstralSkills : MonoBehaviour
   public void Release() => _grabSkill.Release();
 
   /* Astralize */
-  public void SetAstralizeEnabled(bool enabled) => _astralizeSkill.gameObject.SetActive(enabled);
+  public void RememberAstralize() => _astralizeSkill.gameObject.SetActive(true);
   public bool AstralizeKeyPressed => Input.GetKeyDown(_astralizeKey);
   public bool IsAstralized => _astralizeSkill.IsAstralized;
   public void Astralize() => _astralizeSkill.Astralize();

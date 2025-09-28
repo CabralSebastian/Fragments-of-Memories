@@ -54,13 +54,13 @@ public class Explosion : MonoBehaviour
   private void OnTriggerEnter(Collider other)
   {
     Debug.Log("Colisiono con " + other.name);
-    if (!_overlaps.Contains(other.gameObject))
+    if (other.gameObject && !_overlaps.Contains(other.gameObject))
       _overlaps.Add(other.gameObject);
   }
 
   private void OnTriggerExit(Collider other)
   {
-    if (_overlaps.Contains(other.gameObject))
+    if (other.gameObject && _overlaps.Contains(other.gameObject))
       _overlaps.Remove(other.gameObject);
   }
 }
