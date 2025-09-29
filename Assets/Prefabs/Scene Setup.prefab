@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403346284835665084}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -19.2, y: 2.1, z: 18.05}
+  m_LocalRotation: {x: -0.000000015105952, y: -0.000000020770685, z: -3.1376096e-16, w: 1}
+  m_LocalPosition: {x: -4.8, y: 2.5, z: -16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361e9b2d5c9e57e6ca1f2a4546edc8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 0}
+  MainCamera: {fileID: 860202196380946361}
   Player: {fileID: 0}
   Staff: {fileID: 0}
   IsAstralWorld: 0

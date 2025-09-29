@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
   public static GameManager Instance;
-  [HideInInspector] public Camera MainCamera;
+  public Camera MainCamera;
   [HideInInspector] public CharacterController Player;
   [HideInInspector] public StaffController Staff;
   [HideInInspector] public float IsAstralWorld = 0;

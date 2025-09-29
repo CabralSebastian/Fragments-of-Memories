@@ -15,19 +15,6 @@ public class AimCamera : MonoBehaviour
 	private readonly RaycastHit[] _hits = new RaycastHit[10];
 	private readonly Stack<MeshRenderer> _meshRenderers = new();
 
-
-	private void Start()
-	{
-		if (GameManager.Instance.MainCamera != null)
-		{
-			Destroy(gameObject);
-			return;
-		}
-
-		GameManager.Instance.MainCamera = _brainCamera;
-		transform.SetParent(GameManager.Instance.transform);
-	}
-
 	private void Update()
 	{
 		if (Input.GetMouseButtonDown(1))
