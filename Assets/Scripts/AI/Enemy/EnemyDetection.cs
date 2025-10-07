@@ -39,4 +39,26 @@ public class EnemyDetection : MonoBehaviour
       Gizmos.DrawWireSphere(transform.position, _attackRadius);
     }
   }
+
+/*
+  void DetectarJugador() {
+    Collider[] colliders = Physics.OverlapSphere(transform.position, radioDeteccion, capaJugador);
+    
+    foreach (Collider col in colliders) {
+      Vector3 direccionAlJugador = (col.transform.position - transform.position).normalized;
+      float angulo = Vector3.Angle(transform.forward, direccionAlJugador);
+
+      if (angulo < anguloVision / 2f) {
+        // Solo dentro del campo de visión
+        Ray ray = new Ray(transform.position + Vector3.up, direccionAlJugador);
+        if (Physics.Raycast(ray, out RaycastHit hit, radioDeteccion)) {
+          if (hit.collider.CompareTag("Jugador")) {
+            // El enemigo ve al jugador
+            PerseguirJugador(hit.collider.transform);
+          }
+        }
+      }
+    }
+  }
+*/
 }

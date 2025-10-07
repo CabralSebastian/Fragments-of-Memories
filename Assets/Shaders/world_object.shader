@@ -27,7 +27,7 @@ Shader "Custom/WorldObjectShaderURP"
 
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalRenderPipeline" }
+		Tags { "RenderPipeline"="UniversalPipeline" "RenderType"="Opaque" }
 		LOD 100
 
 		Pass
