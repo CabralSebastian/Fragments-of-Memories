@@ -27,7 +27,7 @@ Shader "Custom/WorldObjectTransparentShaderURP"
 
 	SubShader
 	{
-		Tags { "RenderType"="Transparent" "Queue"="Transparent" "RenderPipeline"="UniversalRenderPipeline" }
+		Tags { "RenderPipeline"="UniversalPipeline" "RenderType"="Transparent" "Queue"="Transparent" }
 		Blend SrcAlpha OneMinusSrcAlpha
 		LOD 100
 
