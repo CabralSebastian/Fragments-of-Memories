@@ -14,6 +14,7 @@ public class ExplosiveFruit : Grabbable
   private MeshRenderer _renderer;
   private bool _isStable = true;
 
+
   protected override void Start()
   {
     base.Start();
@@ -45,7 +46,9 @@ public class ExplosiveFruit : Grabbable
       GameManager.Instance.Player.AstralSkills.Release();
 
     _explosionEffect.StartExplotion();
+
     _flower.SpawnExplosiveFruit();
-    Destroy(gameObject);
+    _renderer.enabled = false;
+    Destroy(gameObject, 2);
   }
 } 

@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 403346284835665084}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000015105952, y: -0.000000020770685, z: -3.1376096e-16, w: 1}
-  m_LocalPosition: {x: -4.8, y: 2.5, z: -16}
+  m_LocalPosition: {x: -0.8000002, y: 2.1000004, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 2427054995995534852}
   - component: {fileID: 2127150792375847944}
   - component: {fileID: 8626515522717127773}
+  - component: {fileID: 4361347781868634458}
   m_Layer: 0
   m_Name: Move Camera
   m_TagString: MainCamera
@@ -482,6 +483,14 @@ MonoBehaviour:
   IgnoreTag: 
   AimDistance: 200
   NoiseCancellation: 1
+--- !u!81 &4361347781868634458
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806056024734524501}
+  m_Enabled: 1
 --- !u!1 &5120899290120684034
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +598,7 @@ MonoBehaviour:
   LoseScreen: {fileID: 4992625081935672580}
   WinScreen: {fileID: 8646239717122270056}
   _spawnPoint: {fileID: 0}
-  _worldRoot: {fileID: 0}
+  _worldRoot: {fileID: 7254365558772527932}
 --- !u!1 &6406843714747735838
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,17 +792,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f51757bc79cc0f77f85d3392c4b190e4, type: 3}
---- !u!114 &1295715362206433696 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4385765956439269957, guid: f51757bc79cc0f77f85d3392c4b190e4, type: 3}
-  m_PrefabInstance: {fileID: 3253306091538523109}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf3dfe9881fa2aa70a9142acc6883752, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8949109528281694591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5843296361131270810, guid: f51757bc79cc0f77f85d3392c4b190e4, type: 3}
@@ -807,10 +805,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 978226460013330619}
     m_Modifications:
-    - target: {fileID: 96483022703459138, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
-      propertyPath: Staff
-      value: 
-      objectReference: {fileID: 1295715362206433696}
     - target: {fileID: 571406355556906391, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
       propertyPath: _crosshair
       value: 
@@ -819,6 +813,14 @@ PrefabInstance:
       propertyPath: _mainCamera
       value: 
       objectReference: {fileID: 860202196380946361}
+    - target: {fileID: 1827156558979847763, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
+      propertyPath: m_Volume
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827156558979847763, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5143901582014074584, guid: 1edcf16f68401fbbfa2aebd2a5211e53, type: 2}
     - target: {fileID: 6717499554798845909, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

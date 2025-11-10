@@ -12,15 +12,20 @@ public class Explosion : MonoBehaviour
 
   private readonly List<GameObject> _overlaps = new();
 
+    private SoundPlayer _audio;
+
   public void Awake()
   {
     _collider = GetComponent<SphereCollider>();
+    _audio = GetComponentInParent<SoundPlayer>();
     _collider.isTrigger = true;
     _radius = _collider.radius;
   }
 
   public void StartExplotion()
   {
+    _audio.PlaySound();
+
     transform.SetParent(null);
     StartCoroutine(ExplodeCoroutine());
   }
@@ -46,9 +51,17 @@ public class Explosion : MonoBehaviour
 
   private void DamageOverlaps()
   {
-    foreach (GameObject overlap in _overlaps)
-      if (overlap.TryGetComponent(out Ivy ivy))
-        ivy.gameObject.SetActive(false);
+        foreach (GameObject overlap in _overlaps)
+            if (overlap.TryGetComponent(out Ivy ivy))
+            {
+
+                SoundPlayer sound = ivy.GetComponent<SoundPlayer>();
+                sound.PlaySound();
+
+
+                ivy.gameObject.SetActive(false);
+            }
+        
   }
 
   private void OnTriggerEnter(Collider other)

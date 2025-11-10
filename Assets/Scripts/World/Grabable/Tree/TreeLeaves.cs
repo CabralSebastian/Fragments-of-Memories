@@ -4,6 +4,8 @@ public class TreeLeaves : ThresholdGrabable
 {
   [SerializeField] private TreeLog _log;
 
+    public bool IsGrabbed => _isGrabbed;
+
   protected override void Action()
   {
     _log.Activate();

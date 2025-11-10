@@ -5,6 +5,9 @@ public class Grabbable : MonoBehaviour, IGrabbable
 {
   private Rigidbody _rigidbody;
   protected bool _isGrabbed = false;
+
+  public bool IsGrabbed => _isGrabbed;
+
   [SerializeField] private float _dragSpeed = 10f;
   [SerializeField] private float _holdDistance = 10f;
 
