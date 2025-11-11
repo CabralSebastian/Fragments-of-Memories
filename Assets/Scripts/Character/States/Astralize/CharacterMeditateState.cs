@@ -1,4 +1,6 @@
 
+using UnityEngine;
+
 public class CharacterMeditateState : BaseState
 {
   private readonly CharacterController _controller;
@@ -30,6 +32,10 @@ public class CharacterMeditateState : BaseState
   public override void Update(float deltaTime)
   {
     HandleTransitions();
+    float astralization = _controller.GetAnimationNormalizedTime();
+    GameManager.Instance.IsAstralWorld = astralization;
+    Material skyMat = RenderSettings.skybox;
+    skyMat.SetFloat("_Astralization", astralization);
   }
 
   private void HandleTransitions()
