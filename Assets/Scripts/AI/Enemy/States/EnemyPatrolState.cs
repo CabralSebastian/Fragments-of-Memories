@@ -10,7 +10,7 @@ public class EnemyPatrolState : BaseState
 
   public override void OnEnter()
   {
-    _controller.TurnBaseColor();
+    _controller.Animator.CrossFade("Walk", 0.2f);
     _controller.MoveToRandomPoint();
   }
 

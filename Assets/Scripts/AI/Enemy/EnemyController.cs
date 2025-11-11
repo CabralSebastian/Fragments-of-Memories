@@ -3,22 +3,23 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(MoveAgent))]
 [RequireComponent(typeof(EnemyDetection))]
-[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(Animator))]
 public class EnemyController : MonoBehaviour, IMortal
 {
 	private FSM _fms;
 	private Health _health;
 	private MoveAgent _moveAgent;
-	private MeshRenderer _meshRenderer;
+	private Animator _animator;
 	private EnemyDetection _enemyDetection;
 
-	[SerializeField] private Color _orangeColor;
-	[SerializeField] private Color _baseColor = Color.blue;
 	[SerializeField] private float _wanderRadius = 15f;
   [SerializeField] private GameObject _attackPrefab;
   [SerializeField] private Transform _attackPoint;
+  [SerializeField] private string _attackName;
 
   public Health Health => _health;
+	public Animator Animator => _animator;
+	public string AttackName => _attackName;
 
 	private bool _isPause = false;
 
@@ -27,11 +28,10 @@ public class EnemyController : MonoBehaviour, IMortal
 	{
 		_health = GetComponent<Health>();
 		_moveAgent = GetComponent<MoveAgent>();
-		_meshRenderer = GetComponent<MeshRenderer>();
+		_animator = GetComponent<Animator>();
 		_enemyDetection = GetComponent<EnemyDetection>();
 
 		_health.SetMortal(this);
-    TurnBaseColor();
 
 		EnemyStateFactory stateFactory = new(this);
 		IState initialState = stateFactory.Create<EnemyIdleState>();
@@ -57,12 +57,6 @@ public class EnemyController : MonoBehaviour, IMortal
   public bool PlayerInSight => _enemyDetection.PlayerInSight;
   public bool PlayerInChaseRange => _enemyDetection.PlayerInChaseRange;
   public bool PlayerInAttackRange => _enemyDetection.PlayerInAttackRange;
-  
-  /* Animation*/
-  public void TurnOrange() => _meshRenderer.material.color = _orangeColor;
-  public void TurnRed() => _meshRenderer.material.color = Color.red;
-  public void TurnYellow() => _meshRenderer.material.color = Color.yellow;
-  public void TurnBaseColor() => _meshRenderer.material.color = _baseColor;
 
   /* Movement */
   public bool ReachedTarget => _moveAgent.ReachedTarget;

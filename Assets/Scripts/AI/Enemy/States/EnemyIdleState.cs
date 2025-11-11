@@ -16,7 +16,7 @@ public class EnemyIdleState : BaseState
 
   public override void OnEnter()
   {
-    _controller.TurnBaseColor();
+    _controller.Animator.CrossFade("Idle", 0.2f);
     _timeToWait = Random.Range(0.5f, 2f);
     _timeSpentWaiting = 0f;
   }
