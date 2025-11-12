@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 403346284835665084}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000015105952, y: -0.000000020770685, z: -3.1376096e-16, w: 1}
-  m_LocalPosition: {x: -0.8000002, y: 2.1000004, z: -4}
+  m_LocalPosition: {x: -3, y: 2.1, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -189,7 +189,7 @@ Transform:
   m_GameObject: {fileID: 1189071845803278367}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.3, y: 1.7, z: -3}
+  m_LocalPosition: {x: -3.5, y: 1.7, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -390,7 +390,7 @@ Transform:
   m_GameObject: {fileID: 4806056024734524501}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8, y: 2.1, z: -4}
+  m_LocalPosition: {x: -3, y: 2.1, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -726,14 +726,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Staff
       objectReference: {fileID: 0}
-    - target: {fileID: 265046313010413567, guid: f51757bc79cc0f77f85d3392c4b190e4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3809202727248232650, guid: f51757bc79cc0f77f85d3392c4b190e4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4385765956439269957, guid: f51757bc79cc0f77f85d3392c4b190e4, type: 3}
       propertyPath: _handStaff
       value: 
@@ -742,11 +734,6 @@ PrefabInstance:
       propertyPath: _stickPosition
       value: 
       objectReference: {fileID: 5122090521990877741}
-    - target: {fileID: 4385765956439269957, guid: f51757bc79cc0f77f85d3392c4b190e4, type: 3}
-      propertyPath: _initialStateType._typeName
-      value: StaffOnHandState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
     - target: {fileID: 5843296361131270810, guid: f51757bc79cc0f77f85d3392c4b190e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -805,6 +792,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 978226460013330619}
     m_Modifications:
+    - target: {fileID: 511629485954594570, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 571406355556906391, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
       propertyPath: _crosshair
       value: 
@@ -813,17 +804,9 @@ PrefabInstance:
       propertyPath: _mainCamera
       value: 
       objectReference: {fileID: 860202196380946361}
-    - target: {fileID: 1827156558979847763, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
-      propertyPath: m_Volume
-      value: 0.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1827156558979847763, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -5143901582014074584, guid: 1edcf16f68401fbbfa2aebd2a5211e53, type: 2}
     - target: {fileID: 6717499554798845909, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.2
       objectReference: {fileID: 0}
     - target: {fileID: 6717499554798845909, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
       propertyPath: m_LocalPosition.y
@@ -864,6 +847,14 @@ PrefabInstance:
     - target: {fileID: 6912818742118335949, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
       propertyPath: m_Name
       value: Witch
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043815238931507335, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
+      propertyPath: _menu
+      value: 
+      objectReference: {fileID: 5719933718801928562}
+    - target: {fileID: 7043815238931507335, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
+      propertyPath: _volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8825145902539267920, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
       propertyPath: _camera

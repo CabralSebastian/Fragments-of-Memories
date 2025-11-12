@@ -1,10 +1,11 @@
 using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 
 public class AudioManager : MonoBehaviour
 {
-     Sound[] sounds;
+     [SerializeField] Sound[] sounds;
 
     public static AudioManager instance;
     void Awake()
@@ -31,6 +32,7 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
         }
     }
+     
 
     private void Start()
     {

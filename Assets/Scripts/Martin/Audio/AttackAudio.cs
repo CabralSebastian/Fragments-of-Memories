@@ -8,7 +8,10 @@ public class AttackAudio : MonoBehaviour
 {
     [SerializeField] private AudioSource _StartSource;
     [SerializeField] private AudioSource _LoopSource;
-    [SerializeField] private AudioSource _StopSource;
+
+    [SerializeField] private InGameCanvas _menu;
+
+    [SerializeField] private float _volume;
 
     private bool _isAttacking;
 
@@ -16,30 +19,32 @@ public class AttackAudio : MonoBehaviour
     {
         _StartSource.enabled = false;
         _LoopSource.enabled = false;
-        _StopSource.enabled = false;
     }
 
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (!_menu._IsPaused)
         {
-            _isAttacking = true;
-
-            _StartSource.volume = 1f;
-            _LoopSource.volume = 1f;
-
-            _StartSource.enabled = true;
-            if (!_StartSource.isPlaying)
+            if (Input.GetMouseButton(0))
             {
-                _LoopSource.enabled = true;
+                _isAttacking = true;
+
+                _StartSource.volume = _volume;
+                _LoopSource.volume = _volume;
+
+                _StartSource.enabled = true;
+                if (!_StartSource.isPlaying)
+                {
+                    _LoopSource.enabled = true;
+                }
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                _isAttacking = false;
             }
         }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            _isAttacking = false;
-        }
-
+        
         if (!_isAttacking)
         {
             _StartSource.volume -= 0.03f;

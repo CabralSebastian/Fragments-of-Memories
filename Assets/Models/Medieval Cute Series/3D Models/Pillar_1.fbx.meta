@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: 67a6187dd79d6764f8e6592523850765
+AssetOrigin:
+  serializedVersion: 1
+  productId: 289115
+  packageName: Medieval Arena - Cute Series URP
+  packageVersion: 1.0
+  assetPath: Assets/Medieval Cute Series/3D Models/Pillar_1.fbx
+  uploadId: 678525
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -21,8 +28,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -37,7 +42,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -112,10 +117,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 289115
-  packageName: Medieval Arena - Cute Series URP
-  packageVersion: 1.0
-  assetPath: Assets/Medieval Cute Series/3D Models/Pillar_1.fbx
-  uploadId: 678525

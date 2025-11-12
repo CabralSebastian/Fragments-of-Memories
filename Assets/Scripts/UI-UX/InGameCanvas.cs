@@ -5,6 +5,8 @@ public class InGameCanvas : MonoBehaviour
 	[SerializeField] private GameObject _pauseMenu;
 	private bool _isPaused = false;
 
+	public bool _IsPaused => _isPaused;
+
 	public void MainManu()
 	{
 		// GameManager.Instance.GoToMainMenu();
