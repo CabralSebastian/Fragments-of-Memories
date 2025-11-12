@@ -1,13 +1,8 @@
+using UnityEngine;
 
 public class EnemyAttackState : BaseState
 {
   private readonly EnemyController _controller;
-  private readonly float _timeToAttack = 2f;
-  private float _timeSpentAttacking;
-  private bool AttackedEnough => _timeSpentAttacking >= _timeToAttack;
-  private bool QuarterSecondPassed => _timeSpentAttacking >= _timeToAttack * 0.25f;
-  private bool HalfSecondPassed => _timeSpentAttacking >= _timeToAttack * 0.5f;
-  private bool _attacked = false;
 
   public EnemyAttackState(EnemyController controller)
   {
@@ -17,9 +12,8 @@ public class EnemyAttackState : BaseState
   public override void OnEnter()
   {
     _controller.IsStopped(true);
-    _controller.TurnOrange();
-    _timeSpentAttacking = 0f;
-    _attacked = false;
+    _controller.FacePlayer();
+    _controller.Animator.CrossFade(_controller.AttackName, 0.2f);
   }
 
   public override void OnExit()
@@ -29,26 +23,17 @@ public class EnemyAttackState : BaseState
 
   public override void Update(float deltaTime)
   {
-    _timeSpentAttacking += deltaTime;
-
-    if (QuarterSecondPassed)
-    {
-      _controller.TurnRed();
-      _controller.FacePlayer();
-    }
-    
-    if (HalfSecondPassed && !_attacked)
-    {
-      _attacked = true;
-      _controller.Attack();
-    }
-    
     HandleTransitions();
   }
 
   private void HandleTransitions()
   {
-    if (AttackedEnough)
+    AnimatorStateInfo stateInfo = _controller.Animator.GetCurrentAnimatorStateInfo(0);
+
+    if (_controller.Animator.IsInTransition(0))
+      stateInfo = _controller.Animator.GetNextAnimatorStateInfo(0);
+        
+    if (stateInfo.normalizedTime >= 0.95f && stateInfo.IsName(_controller.AttackName))
       Transition<EnemyChaseState>();
   }
 }

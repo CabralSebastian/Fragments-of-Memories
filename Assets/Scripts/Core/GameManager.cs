@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
   public Camera MainCamera;
   [HideInInspector] public CharacterController Player;
   [HideInInspector] public StaffController Staff;
-  [HideInInspector] public float IsAstralWorld = 0;
+
   public PeepSkill Peep => Player.AstralSkills.Peep;
   public Synthesizer Synthesizer => Player.Staff.Synthesizer;
   [SerializeField] private GameObject LoseScreen;
@@ -16,6 +16,23 @@ public class GameManager : MonoBehaviour
   [SerializeField] private Transform _spawnPoint;
   [SerializeField] private GameObject _worldRoot;
   private List<WorldObject> _worldObjects;
+  [SerializeField] private float _isAstralWorld = 0f;
+  [SerializeField] private Material _skyMat;
+
+  public float IsAstralWorld
+  {
+    get => _isAstralWorld;
+    set
+    {
+      _isAstralWorld = Mathf.Clamp01(value);
+
+      if (_skyMat == null)
+        _skyMat = RenderSettings.skybox;
+
+      if (_skyMat != null)
+        _skyMat.SetFloat("_Astralization", _isAstralWorld);
+    }
+  }
 
   public bool RememberAstralize { get; set; } = false;
   public bool RememberIvyLabyrinth { get; set; } = false;
@@ -119,5 +136,7 @@ public class GameManager : MonoBehaviour
     string sceneName = SceneManager.GetActiveScene().name;
     if (sceneName == "Main Menu")
       Destroy(gameObject);
+
+    RenderSettings.skybox = Instance._skyMat;
   }
 }

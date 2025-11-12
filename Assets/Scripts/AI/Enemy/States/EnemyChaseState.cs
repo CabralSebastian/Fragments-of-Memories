@@ -11,7 +11,8 @@ public class EnemyChaseState : BaseState
 
   public override void OnEnter()
   { 
-    _controller.TurnYellow();
+    _controller.Animator.CrossFade("Run", 0.2f);
+
     _controller.MultiplySpeed(_chaseSpeedMultiplier);
   }
 

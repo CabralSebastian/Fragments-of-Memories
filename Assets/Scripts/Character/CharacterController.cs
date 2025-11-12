@@ -121,6 +121,8 @@ public class CharacterController : MonoBehaviour, IMortal
 	public void SetAnimationSpeed(float speed) => _animator.speed = speed;
 	public bool IsAnimationFinished(string animationName) => !(AnimationStateInfo.normalizedTime < 1f || !AnimationStateInfo.IsName(animationName));
 
+	public float GetAnimationNormalizedTime() => AnimationStateInfo.normalizedTime;
+
 	/* Health */
 	public void Die() => GameManager.Instance.Lose();
 	public void OnTakeDamage(float damage) => Debug.Log($"Taking damage: {damage}");

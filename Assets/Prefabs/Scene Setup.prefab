@@ -594,11 +594,12 @@ MonoBehaviour:
   MainCamera: {fileID: 860202196380946361}
   Player: {fileID: 0}
   Staff: {fileID: 0}
-  IsAstralWorld: 0
   LoseScreen: {fileID: 4992625081935672580}
   WinScreen: {fileID: 8646239717122270056}
   _spawnPoint: {fileID: 0}
   _worldRoot: {fileID: 7254365558772527932}
+  _isAstralWorld: 0
+  _skyMat: {fileID: 2100000, guid: 603a8e8407dd5e05f843d511b01a7de2, type: 2}
 --- !u!1 &6406843714747735838
 GameObject:
   m_ObjectHideFlags: 0
