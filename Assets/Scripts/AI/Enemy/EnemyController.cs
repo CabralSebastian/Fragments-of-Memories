@@ -13,8 +13,6 @@ public class EnemyController : MonoBehaviour, IMortal
 	private EnemyDetection _enemyDetection;
 
 	[SerializeField] private float _wanderRadius = 15f;
-  [SerializeField] private GameObject _attackPrefab;
-  [SerializeField] private Transform _attackPoint;
   [SerializeField] private string _attackName;
 
   public Health Health => _health;
@@ -22,6 +20,11 @@ public class EnemyController : MonoBehaviour, IMortal
 	public string AttackName => _attackName;
 
 	private bool _isPause = false;
+
+	public bool IsInCombat => 
+		_fms.CurrentState is EnemyChaseState ||
+		_fms.CurrentState is EnemyAttackState ||
+		_fms.CurrentState is EnemyAfterAttackIdleState;
 
 	/* Awake & Update */
 	public void Awake()
@@ -70,13 +73,6 @@ public class EnemyController : MonoBehaviour, IMortal
 		targetPosition.y = transform.position.y;
 
 		transform.LookAt(targetPosition);
-	}
-
-  /* Attack */
-	public void Attack()
-	{
-		// TODO: Attack Pool
-		Instantiate(_attackPrefab, _attackPoint.position, transform.rotation);
 	}
 
 	/* Health */

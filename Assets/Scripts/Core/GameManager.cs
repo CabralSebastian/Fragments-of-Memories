@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,9 +16,12 @@ public class GameManager : MonoBehaviour
   [SerializeField] private GameObject WinScreen;
   [SerializeField] private Transform _spawnPoint;
   [SerializeField] private GameObject _worldRoot;
+  [SerializeField] private EnemyController[] _enemies;
   private List<WorldObject> _worldObjects;
   [SerializeField] private float _isAstralWorld = 0f;
   [SerializeField] private Material _skyMat;
+
+  public bool IsCombat => _enemies.Any(enemy => enemy.IsInCombat);
 
   public float IsAstralWorld
   {
@@ -43,7 +47,7 @@ public class GameManager : MonoBehaviour
     transform.SetParent(null);
     if (Instance && Instance != this)
     {
-      Instance.UpdateGameManager(_worldRoot, _spawnPoint);
+      Instance.UpdateGameManager(_worldRoot, _spawnPoint, _enemies);
       Destroy(gameObject);
       return;
     }
@@ -55,10 +59,11 @@ public class GameManager : MonoBehaviour
     DontDestroyOnLoad(gameObject);
   }
 
-  public void UpdateGameManager(GameObject worldRoot, Transform spawnPoint)
+  public void UpdateGameManager(GameObject worldRoot, Transform spawnPoint, EnemyController[] enemies)
   {
     _worldObjects = new List<WorldObject>(worldRoot.GetComponentsInChildren<WorldObject>());
     _spawnPoint = spawnPoint;
+    _enemies = enemies;
   }
 
   public void Astralize()

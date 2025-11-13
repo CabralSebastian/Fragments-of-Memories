@@ -16,12 +16,16 @@ public class EnemyIdleState : BaseState
 
   public override void OnEnter()
   {
+    //_controller.IsStopped(true);
     _controller.Animator.CrossFade("Idle", 0.2f);
     _timeToWait = Random.Range(0.5f, 2f);
     _timeSpentWaiting = 0f;
   }
 
-  public override void OnExit() { }
+  public override void OnExit()
+  {
+    //_controller.IsStopped(false);
+  }
 
   public override void Update(float deltaTime)
   {
