@@ -13,8 +13,6 @@ public class EnemyController : MonoBehaviour, IMortal
 	private EnemyDetection _enemyDetection;
 
 	[SerializeField] private float _wanderRadius = 15f;
-  [SerializeField] private GameObject _attackPrefab;
-  [SerializeField] private Transform _attackPoint;
   [SerializeField] private string _attackName;
 
   public Health Health => _health;
@@ -70,13 +68,6 @@ public class EnemyController : MonoBehaviour, IMortal
 		targetPosition.y = transform.position.y;
 
 		transform.LookAt(targetPosition);
-	}
-
-  /* Attack */
-	public void Attack()
-	{
-		// TODO: Attack Pool
-		Instantiate(_attackPrefab, _attackPoint.position, transform.rotation);
 	}
 
 	/* Health */

@@ -34,6 +34,6 @@ public class EnemyAttackState : BaseState
       stateInfo = _controller.Animator.GetNextAnimatorStateInfo(0);
         
     if (stateInfo.normalizedTime >= 0.95f && stateInfo.IsName(_controller.AttackName))
-      Transition<EnemyChaseState>();
+      Transition<EnemyAfterAttackIdleState>();
   }
 }

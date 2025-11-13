@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1074779057464010334
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8051214013917653446}
-  m_Layer: 0
-  m_Name: Attack Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8051214013917653446
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074779057464010334}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8424192251327238599}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1458523970915651514
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +105,7 @@ GameObject:
   - component: {fileID: 7248256338935176047}
   - component: {fileID: 3098482406024861187}
   - component: {fileID: 5611767519995957489}
+  - component: {fileID: 7529724004089361434}
   m_Layer: 0
   m_Name: Brown Bear
   m_TagString: Untagged
@@ -157,8 +127,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7134436253624140337}
-  - {fileID: 8051214013917653446}
   - {fileID: 161177859008937136}
+  - {fileID: 4245595506258730250}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &5400030994272131756
@@ -243,8 +213,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wanderRadius: 10
-  _attackPrefab: {fileID: 745373878383230089, guid: fd806c89434656c4aa68cb332e8dcfc2, type: 3}
-  _attackPoint: {fileID: 8051214013917653446}
   _attackName: Stomp
 --- !u!95 &3098482406024861187
 Animator:
@@ -288,7 +256,20 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 3, y: 3, z: 4}
-  m_Center: {x: 0, y: 1.5, z: 0.5}
+  m_Center: {x: 0, y: 1.5, z: -1}
+--- !u!114 &7529724004089361434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865029890367255946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e85c4ce78c1240f858602646d8ce22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _earthwave: {fileID: 5091850130261256716}
 --- !u!1 &4538113284582864826
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,7 +595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7292658344771522932, guid: f5b41ba4c79702547a89de7544b80656, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7292658344771522932, guid: f5b41ba4c79702547a89de7544b80656, type: 3}
       propertyPath: m_LocalRotation.w
@@ -659,3 +640,76 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7292658344771522932, guid: f5b41ba4c79702547a89de7544b80656, type: 3}
   m_PrefabInstance: {fileID: 447582430296707909}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2224422839962713963
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8424192251327238599}
+    m_Modifications:
+    - target: {fileID: 2609236028614369889, guid: be5f13026612feb54b65034703e23a7a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2609236028614369889, guid: be5f13026612feb54b65034703e23a7a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2609236028614369889, guid: be5f13026612feb54b65034703e23a7a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2609236028614369889, guid: be5f13026612feb54b65034703e23a7a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2609236028614369889, guid: be5f13026612feb54b65034703e23a7a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2609236028614369889, guid: be5f13026612feb54b65034703e23a7a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2609236028614369889, guid: be5f13026612feb54b65034703e23a7a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2609236028614369889, guid: be5f13026612feb54b65034703e23a7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2609236028614369889, guid: be5f13026612feb54b65034703e23a7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2609236028614369889, guid: be5f13026612feb54b65034703e23a7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051871716359683433, guid: be5f13026612feb54b65034703e23a7a, type: 3}
+      propertyPath: m_Name
+      value: Earth Wave Attack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: be5f13026612feb54b65034703e23a7a, type: 3}
+--- !u!4 &4245595506258730250 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2609236028614369889, guid: be5f13026612feb54b65034703e23a7a, type: 3}
+  m_PrefabInstance: {fileID: 2224422839962713963}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5091850130261256716 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6374667695534740839, guid: be5f13026612feb54b65034703e23a7a, type: 3}
+  m_PrefabInstance: {fileID: 2224422839962713963}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3724723c8d674bd2d99084fd519b0dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
