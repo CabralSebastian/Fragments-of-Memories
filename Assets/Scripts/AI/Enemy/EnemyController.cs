@@ -21,6 +21,11 @@ public class EnemyController : MonoBehaviour, IMortal
 
 	private bool _isPause = false;
 
+	public bool IsInCombat => 
+		_fms.CurrentState is EnemyChaseState ||
+		_fms.CurrentState is EnemyAttackState ||
+		_fms.CurrentState is EnemyAfterAttackIdleState;
+
 	/* Awake & Update */
 	public void Awake()
 	{
