@@ -18,7 +18,7 @@ public class StaffController : Interactable
 	public bool PressedInteractionKey => Input.GetKeyDown(_interactionKey);
 	public bool IsOnHand => _fms.CurrentState is StaffOnHandState;
 
-  public override string Action => "\"F\" Para Agarrar";
+  public override string Action => "Agarrar";
 
 	public void Awake()
 	{

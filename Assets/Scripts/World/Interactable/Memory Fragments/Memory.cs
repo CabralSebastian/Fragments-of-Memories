@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class Memory : Interactable
 {
   [SerializeField] private string _text = "Recuerdo";
-  public override string Action => "\"F\" Para Tocar";
+  public override string Action => "Tocar";
 
   public override void Interact()
   {

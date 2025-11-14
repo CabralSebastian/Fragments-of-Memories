@@ -74,7 +74,7 @@ public class CharacterInteraction : MonoBehaviour
 
   private void TurnHighlightOn(Interactable interactable)
   {
-    GameManager.Instance.ShowAction(interactable.Action);
+    GameManager.Instance.ShowAction("\"F\" Para " + interactable.Action);
   }
 
   private void TurnHighlightOff(Interactable _)
