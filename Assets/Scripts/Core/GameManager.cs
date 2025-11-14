@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
   [SerializeField] private float _isAstralWorld = 0f;
   [SerializeField] private Material _skyMat;
 
-  public bool IsCombat => _enemies.Any(enemy => enemy.IsInCombat);
+  public bool IsCombat => _enemies.Any(enemy => enemy.gameObject.activeSelf && enemy.IsInCombat);
 
   public float IsAstralWorld
   {
