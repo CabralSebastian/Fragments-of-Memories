@@ -1,10 +1,7 @@
-public class WaterfallsMemory : Interactable
+public class WaterfallsMemory : Memory
 {
-  public override string Action => "\"F\" Para Tocar";
-
-  public override void Interact()
+  public override void OnInteract()
   {
     GameManager.Instance.RememberWaterfalls = true;
-    gameObject.SetActive(false);
   }
 }

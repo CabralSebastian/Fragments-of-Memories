@@ -1,15 +1,10 @@
-public class AstralizeMemory : Interactable
+public class AstralizeMemory : Memory
 {
-  // "🅕 Para Tocar"
-  public override string Action => "\"F\" Para Tocar";
-
-  public override void Interact()
+  public override void OnInteract()
   {
     GameManager.Instance.RememberAstralize = true;
     GameManager.Instance.Player.AstralSkills.RememberAstralize();
 
     GameManager.Instance.RememberIvyLabyrinth = true;
-
-    gameObject.SetActive(false);
   }
 }

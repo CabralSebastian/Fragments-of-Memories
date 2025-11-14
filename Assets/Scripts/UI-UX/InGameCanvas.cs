@@ -39,4 +39,10 @@ public class InGameCanvas : MonoBehaviour
 		else
 			GameManager.Instance.LockCursor();
 	}
+
+	public void HideMemory()
+	{
+		GameManager.Instance.HideMemory();
+	}
+
 }

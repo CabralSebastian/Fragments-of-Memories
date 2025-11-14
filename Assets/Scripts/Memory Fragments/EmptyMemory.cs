@@ -1,9 +1,6 @@
-public class EmptyMemory : Interactable
+public class EmptyMemory : Memory
 {
-  public override string Action => "\"F\" Para Tocar";
-
-  public override void Interact()
+  public override void OnInteract()
   {
-    gameObject.SetActive(false);
   }
 }

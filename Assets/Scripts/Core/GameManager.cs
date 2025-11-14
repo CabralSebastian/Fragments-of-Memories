@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
   [SerializeField] private GameObject WinScreen;
   [SerializeField] private GameObject _action;
   [SerializeField] private TextMeshProUGUI _actionText;
+  [SerializeField] private GameObject _memory;
+  [SerializeField] private TextMeshProUGUI _memoryText;
 
   [SerializeField] private Transform _spawnPoint;
   [SerializeField] private GameObject _worldRoot;
@@ -158,5 +160,24 @@ public class GameManager : MonoBehaviour
   public void HideAction()
   {
     _action.SetActive(false);
+  }
+
+  public void ShowMemory(string memoryText)
+  {
+    Time.timeScale = 0f;
+    Player.SetPause(true);
+    UnlockCursor();
+
+    _memory.SetActive(true);
+    _memoryText.SetText(memoryText);
+  }
+
+  public void HideMemory()
+  {
+    Time.timeScale = 1f;
+    Player.SetPause(false);
+    LockCursor();
+
+    _memory.SetActive(false);
   }
 }
