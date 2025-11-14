@@ -27,14 +27,14 @@ public class Grabbable : MonoBehaviour, IGrabbable
     _rigidbody.linearVelocity = direction * _dragSpeed;
   }
 
-  public void Grab()
+  public virtual void Grab()
   {
     _isGrabbed = true;
     _rigidbody.useGravity = false;
     _rigidbody.linearVelocity = Vector3.zero;
   }
 
-  public void Release()
+  public virtual void Release()
   {
     _isGrabbed = false;
     _rigidbody.linearVelocity = Vector3.zero;

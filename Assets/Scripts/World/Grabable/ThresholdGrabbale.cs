@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public abstract class ThresholdGrabable : MonoBehaviour, IGrabbable
+public abstract class ThresholdGrabable : Grabbable
 {
-  protected bool _isGrabbed = false;
   protected Vector3 _grabPoint;
   [SerializeField] protected float _wiggleAmount = 0.05f;
   [SerializeField] protected float _wiggleSpeed = 10f;
@@ -10,7 +9,7 @@ public abstract class ThresholdGrabable : MonoBehaviour, IGrabbable
 
   protected Vector3 _originalPosition;
 
-  private void Update()
+  protected override void Update()
   {
     if (!_isGrabbed)
       return;
@@ -41,14 +40,14 @@ public abstract class ThresholdGrabable : MonoBehaviour, IGrabbable
     transform.position = _originalPosition + wiggleOffset;
   }
 
-  public void Grab()
+  public override void Grab()
   {
     _isGrabbed = true;
     _grabPoint = transform.position;
     _originalPosition = transform.position;
   }
 
-  public void Release()
+  public override void Release()
   {
     _isGrabbed = false;
     transform.position = _originalPosition;

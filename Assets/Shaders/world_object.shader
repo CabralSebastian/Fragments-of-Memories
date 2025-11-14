@@ -23,6 +23,10 @@ Shader "Custom/WorldObjectShaderURP"
 		_IsSphereActive ("Is Sphere Active", Range(0, 1)) = 0
 		_SphereRadius ("Sphere Radius", Float) = 0
 		_SphereOrigin ("Sphere Origin", Vector) = (0,0,0,0)
+
+		/* Outline */
+		_OutlineColor ("Outline Color", Color) = (0,0,0,1)
+		_OutlineThickness ("Outline Thickness", Float) = 0
 	}
 
 	SubShader
@@ -154,6 +158,61 @@ Shader "Custom/WorldObjectShaderURP"
 				return half4(color.rgb, 1);
 			}
 
+			ENDHLSL
+		}
+
+		Pass
+		{
+			Name "Outline"
+			Tags { "LightMode" = "SRPDefaultUnlit" }
+
+			Cull Front
+			ZWrite On
+			ZTest LEqual
+
+			HLSLPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+
+			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
+			struct Attributes
+			{
+				float4 positionOS : POSITION;
+				float3 normalOS : NORMAL;
+			};
+
+			struct Varyings
+			{
+				float4 positionHCS : SV_POSITION;
+				float3 normalWS : TEXCOORD0;
+				float3 viewDirWS : TEXCOORD1;
+			};
+
+			float _OutlineThickness;
+			half4 _OutlineColor;
+
+			Varyings vert (Attributes IN)
+			{
+				Varyings OUT;
+
+				float3 normalWS = TransformObjectToWorldNormal(IN.normalOS);
+				float3 offsetDir = TransformWorldToObjectDir(normalWS);
+
+				float3 newPos = IN.positionOS.xyz + offsetDir * _OutlineThickness;
+				OUT.positionHCS = TransformObjectToHClip(newPos);
+
+				OUT.normalWS = normalWS;
+				OUT.viewDirWS = normalize(_WorldSpaceCameraPos - TransformObjectToWorld(IN.positionOS.xyz));
+
+				return OUT;
+			}
+
+			half4 frag (Varyings IN) : SV_Target
+			{
+				float fresnel = pow(1.0 - saturate(dot(IN.normalWS, IN.viewDirWS)), 2.0);
+				return _OutlineColor * fresnel;
+			}
 			ENDHLSL
 		}
 	}

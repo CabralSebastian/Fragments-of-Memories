@@ -5,28 +5,92 @@ public class GrabSkill : MonoBehaviour
   [SerializeField] private Camera _camera;
   [SerializeField] private float _maxDistance = 100f;
   [SerializeField] private LayerMask _layerMask;
+  [SerializeField] private float _outlineThinkness = 0.1f;
+  [SerializeField] private Color _outlineColor = Color.white;
 
-  private IGrabbable _grabbed = null;
+  private Grabbable _highlighted = null;
+  private Grabbable _grabbed = null;
+
+  private MaterialPropertyBlock _mpb;
+
   public bool IsGrabbing => _grabbed != null;
+
+  private void Awake()
+  {
+      _mpb = new MaterialPropertyBlock();
+  }
+
+  private void Update()
+  {
+    if (_grabbed)
+      return;
+
+    Ray ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+    if (!Physics.Raycast(ray, out RaycastHit hit, _maxDistance, _layerMask))
+    {
+      ClearHighlight();
+      return;
+    }
+
+    if (hit.collider.TryGetComponent(out Grabbable grabable) && grabable.enabled)
+    {
+      if (_highlighted == grabable)
+        return;
+
+      ClearHighlight();
+      _highlighted = grabable;
+      TurnHighlightOn();
+    }
+    else
+      ClearHighlight();
+  }
 
   public void Grab()
   {
-    Ray ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-    if (!Physics.Raycast(ray, out RaycastHit hit, _maxDistance, _layerMask))
-      return;
-
-    GameObject hitObject = hit.collider.gameObject;
-
-    if (hitObject.TryGetComponent(out IGrabbable grabable))
-    {
-      grabable.Grab();
-      _grabbed = grabable;
-    }
+    TurnHighlightOff();
+    _highlighted.Grab();
+    _grabbed = _highlighted;
   }
 
   public void Release()
   {
     _grabbed.Release();
     _grabbed = null;
+  }
+
+  private void TurnHighlightOn()
+  {
+    if (!_highlighted)
+      return;
+
+    Renderer renderer = _highlighted.GetComponent<Renderer>();
+    renderer.GetPropertyBlock(_mpb);
+
+    _mpb.SetColor("_OutlineColor", _outlineColor);
+    _mpb.SetFloat("_OutlineThickness", _outlineThinkness);
+
+    renderer.SetPropertyBlock(_mpb);
+  }
+
+  private void TurnHighlightOff()
+  {
+    if (!_highlighted)
+      return;
+
+    Renderer renderer = _highlighted.GetComponent<Renderer>();
+    renderer.GetPropertyBlock(_mpb);
+
+    _mpb.SetFloat("_OutlineThickness", 0f);
+
+    renderer.SetPropertyBlock(_mpb);
+  }
+
+  private void ClearHighlight()
+  {
+    if (_highlighted)
+      TurnHighlightOff();
+
+    _highlighted = null;
   }
 }

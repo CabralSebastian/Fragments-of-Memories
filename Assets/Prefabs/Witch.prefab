@@ -370,10 +370,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
-  _maxDistance: 100
+  _maxDistance: 10
   _layerMask:
     serializedVersion: 2
     m_Bits: 268566528
+  _outlineThinkness: 0.1
+  _outlineColor: {r: 0.5882353, g: 0, b: 1, a: 1}
 --- !u!1 &4405528893956213042
 GameObject:
   m_ObjectHideFlags: 0
