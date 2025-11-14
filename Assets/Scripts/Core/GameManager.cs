@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,9 @@ public class GameManager : MonoBehaviour
   public Synthesizer Synthesizer => Player.Staff.Synthesizer;
   [SerializeField] private GameObject LoseScreen;
   [SerializeField] private GameObject WinScreen;
+  [SerializeField] private GameObject _action;
+  [SerializeField] private TextMeshProUGUI _actionText;
+
   [SerializeField] private Transform _spawnPoint;
   [SerializeField] private GameObject _worldRoot;
   [SerializeField] private EnemyController[] _enemies;
@@ -143,5 +147,16 @@ public class GameManager : MonoBehaviour
       Destroy(gameObject);
 
     RenderSettings.skybox = Instance._skyMat;
+  }
+
+  public void ShowAction(string actionText)
+  {
+    _action.SetActive(true);
+    _actionText.SetText(actionText);
+  }
+
+  public void HideAction()
+  {
+    _action.SetActive(false);
   }
 }

@@ -9,9 +9,6 @@ public class CharacterInteraction : MonoBehaviour
   private readonly Collider[] _hits = new Collider[2];
   private Vector3 Center => transform.position + transform.up;
 
-  [SerializeField] private float _outlineThinkness = 0.1f;
-  [SerializeField] private Color _outlineColor = Color.white;
-
   private Interactable _interactable = null;
   private Interactable _lastInteractable = null;
 
@@ -77,27 +74,12 @@ public class CharacterInteraction : MonoBehaviour
 
   private void TurnHighlightOn(Interactable interactable)
   {
-    /*
-    Renderer[] renderers = interactable.GetComponentsInChildren<Renderer>();
-    foreach (var renderer in renderers)
-    {
-      renderer.GetPropertyBlock(_mpb);
-      _mpb.SetFloat("_OutlineThickness", _outlineThinkness);
-      _mpb.SetColor("_OutlineColor", _outlineColor);
-      renderer.SetPropertyBlock(_mpb);
-    }*/
+    GameManager.Instance.ShowAction(interactable.Action);
   }
 
-  private void TurnHighlightOff(Interactable interactable)
+  private void TurnHighlightOff(Interactable _)
   {
-    /*
-    Renderer[] renderers = interactable.GetComponentsInChildren<Renderer>();
-    foreach (var renderer in renderers)
-    {
-      renderer.GetPropertyBlock(_mpb);
-      _mpb.SetFloat("_OutlineThickness", 0f);
-      renderer.SetPropertyBlock(_mpb);
-    }*/
+    GameManager.Instance.HideAction();
   }
 
   private void ClearLastHighlight()

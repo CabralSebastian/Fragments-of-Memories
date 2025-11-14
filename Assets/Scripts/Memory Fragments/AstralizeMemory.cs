@@ -1,5 +1,8 @@
 public class AstralizeMemory : Interactable
 {
+  // "🅕 Para Tocar"
+  public override string Action => "\"F\" Para Tocar";
+
   public override void Interact()
   {
     GameManager.Instance.RememberAstralize = true;

@@ -12,6 +12,8 @@ public class GrabSkill : MonoBehaviour
   private Grabbable _grabbed = null;
 
   private MaterialPropertyBlock _mpb;
+  private string Action => "\"C\" Para Agarrar";
+
 
   public bool IsGrabbing => _grabbed != null;
 
@@ -71,6 +73,8 @@ public class GrabSkill : MonoBehaviour
     _mpb.SetFloat("_OutlineThickness", _outlineThinkness);
 
     renderer.SetPropertyBlock(_mpb);
+
+    GameManager.Instance.ShowAction(Action);
   }
 
   private void TurnHighlightOff()
@@ -84,6 +88,8 @@ public class GrabSkill : MonoBehaviour
     _mpb.SetFloat("_OutlineThickness", 0f);
 
     renderer.SetPropertyBlock(_mpb);
+
+    GameManager.Instance.HideAction();
   }
 
   private void ClearHighlight()
