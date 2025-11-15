@@ -18,7 +18,6 @@ public class TreeLogAudio : MonoBehaviour
     private void Update()
     {
         _speedometer.CalculateSpeed(_tree.IsGrabbed);
-        Debug.Log(_tree.IsGrabbed);
     }
 
     private void OnCollisionEnter(Collision collision)

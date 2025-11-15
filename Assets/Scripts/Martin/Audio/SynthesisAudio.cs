@@ -19,7 +19,6 @@ public class SynthesisAudio : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_synthesis.State);
         if (_synthesis.State == SynthesizerState.ACTIVATING && _previousState == SynthesizerState.OFF)
         {
             _audioSource.PlayOneShot(_activatingClip);

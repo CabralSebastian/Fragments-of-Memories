@@ -25,7 +25,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Astralization: 1.0082037
+    - _Astralization: 0
     - _HorizonLineContribution: 0
     - _HorizonLineContribution_Astral: 0.32
     - _HorizonLineContribution_Physical: 0

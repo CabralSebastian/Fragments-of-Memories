@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 403346284835665084}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000015105952, y: -0.000000020770685, z: -3.1376096e-16, w: 1}
-  m_LocalPosition: {x: -3, y: 2.1, z: -4}
+  m_LocalPosition: {x: -17.758486, y: 2.1, z: -53.02683}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -598,6 +598,7 @@ MonoBehaviour:
   WinScreen: {fileID: 8646239717122270056}
   _spawnPoint: {fileID: 0}
   _worldRoot: {fileID: 7254365558772527932}
+  _enemies: []
   _isAstralWorld: 0
   _skyMat: {fileID: 2100000, guid: 603a8e8407dd5e05f843d511b01a7de2, type: 2}
 --- !u!1 &6406843714747735838
@@ -805,6 +806,10 @@ PrefabInstance:
       propertyPath: _mainCamera
       value: 
       objectReference: {fileID: 860202196380946361}
+    - target: {fileID: 4635490156882618692, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
+      propertyPath: _minimumTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6717499554798845909, guid: 28be2098cc5018ab7acc9088a5f40123, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.2

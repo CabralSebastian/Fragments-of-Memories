@@ -12,20 +12,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Start.unity
     guid: 8e971c646d136e24faab45978fbe132c
   - enabled: 1
-    path: Assets/Scenes/The Woods 1.unity
-    guid: 171301d8b723c5b4eabf641bbc956929
+    path: Assets/Scenes/The Woods 1(Terrain).unity
+    guid: 2f5c8651a2228cf468c0220ea5d83dbb
   - enabled: 1
     path: Assets/Scenes/The Woods 2.unity
     guid: 7e169e24f4d223b46a194e317ce9197d
   - enabled: 1
-    path: Assets/Scenes/Ivy Laberinth.unity
-    guid: 74bd23abb83a83b41b1c940eaeabaa73
+    path: Assets/Scenes/Mystic Waterfall 1 (Terrain).unity
+    guid: 0c1d2969cb09e7b479c595a7be9c8595
   - enabled: 1
-    path: Assets/Scenes/Mystic Waterfall 1.unity
-    guid: 20bca812a7b47a14ebb0a2b9b26e28f8
+    path: Assets/Scenes/Mystic Waterfalls 2(Terrain).unity
+    guid: 4e9de533837857c4d9b415f84f14aafa
   - enabled: 1
-    path: Assets/Scenes/Mystic Waterfalls 2.unity
-    guid: 99c61f8912863d649a53b9dec7df8884
+    path: Assets/Scenes/Ivy Laberinth (Terrain).unity
+    guid: 6f96a9f7e585a664cba69da55cd98548
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

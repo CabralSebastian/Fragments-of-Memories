@@ -955,6 +955,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b3e9cdac26b78934197456d8199e30bc, type: 3}
   - {fileID: 8300000, guid: ddc4973571f36404d95c23401b7d2f12, type: 3}
   - {fileID: 8300000, guid: 8c9f76b14113ab640ab4b94535ad82e3, type: 3}
+  _volume: 0
 --- !u!114 &4635490156882618692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,7 +968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d932d61e12f97d4480852c1d815d70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minimumTime: 5
+  _minimumTime: 0.5
   _minimumPitch: 0.4
   _maximumPitch: 1
   _volume: 0.5

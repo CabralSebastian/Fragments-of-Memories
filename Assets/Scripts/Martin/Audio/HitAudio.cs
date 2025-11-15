@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HitAudio : MonoBehaviour
 {
-    [SerializeField] private float _minimumTime = 5f;
+    [SerializeField] private float _minimumTime = 0.5f;
 
     [SerializeField] private float _minimumPitch = 0.5f;
     [SerializeField] private float _maximumPitch = 1f;
@@ -37,6 +37,8 @@ public class HitAudio : MonoBehaviour
             _audioSource.volume = _volume;
             _audioSource.pitch = Random.Range(_minimumPitch, _maximumPitch);
             _audioSource.PlayOneShot(_audioClip);
+
+            _timer = 0f;
         }
 
         _previousHealth = _character.Value;

@@ -3,18 +3,30 @@ using UnityEngine.Audio;
 
 public class MusicTrigger : MonoBehaviour
 {
-    public AudioMixerSnapshot onEnterSnapshot;
-    public AudioMixerSnapshot onExitSnapshot;
-    public float transitionTime = 1.5f;
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] private AudioMixerSnapshot onEnterSnapshot;
+    [SerializeField] private AudioMixerSnapshot onExitSnapshot;
+    [SerializeField] private float transitionTime = 1.5f;
+
+    private void Update()
     {
-        if (other.CompareTag("Player"))
-            onEnterSnapshot.TransitionTo(transitionTime);
+        if (GameManager.Instance.IsCombat)
+        {
+            EnterCombat();
+        }
+        else if (!GameManager.Instance.IsCombat)
+        {
+            ExitCombat();
+        }
     }
-    private void OnTriggerExit(Collider other)
+
+    private void EnterCombat()
     {
-        if (other.CompareTag("Player"))
-            onExitSnapshot.TransitionTo(transitionTime);
+        onEnterSnapshot.TransitionTo(transitionTime);
+    }
+
+    private void ExitCombat()
+    {
+        onExitSnapshot.TransitionTo(transitionTime);
     }
 }
 
