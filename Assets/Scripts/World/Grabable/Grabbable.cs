@@ -5,7 +5,6 @@ public class Grabbable : MonoBehaviour, IGrabbable
 {
   private Rigidbody _rigidbody;
   protected bool _isGrabbed = false;
-
   public bool IsGrabbed => _isGrabbed;
 
   [SerializeField] private float _dragSpeed = 10f;
@@ -27,14 +26,14 @@ public class Grabbable : MonoBehaviour, IGrabbable
     _rigidbody.linearVelocity = direction * _dragSpeed;
   }
 
-  public void Grab()
+  public virtual void Grab()
   {
     _isGrabbed = true;
     _rigidbody.useGravity = false;
     _rigidbody.linearVelocity = Vector3.zero;
   }
 
-  public void Release()
+  public virtual void Release()
   {
     _isGrabbed = false;
     _rigidbody.linearVelocity = Vector3.zero;

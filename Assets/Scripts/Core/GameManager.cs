@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,11 @@ public class GameManager : MonoBehaviour
   public Synthesizer Synthesizer => Player.Staff.Synthesizer;
   [SerializeField] private GameObject LoseScreen;
   [SerializeField] private GameObject WinScreen;
+  [SerializeField] private GameObject _action;
+  [SerializeField] private TextMeshProUGUI _actionText;
+  [SerializeField] private GameObject _memory;
+  [SerializeField] private TextMeshProUGUI _memoryText;
+
   [SerializeField] private Transform _spawnPoint;
   [SerializeField] private GameObject _worldRoot;
   [SerializeField] private EnemyController[] _enemies;
@@ -21,7 +27,7 @@ public class GameManager : MonoBehaviour
   [SerializeField] private float _isAstralWorld = 0f;
   [SerializeField] private Material _skyMat;
 
-  public bool IsCombat => _enemies.Any(enemy => enemy.IsInCombat);
+  public bool IsCombat => _enemies.Any(enemy => enemy.gameObject.activeSelf && enemy.IsInCombat);
 
   public float IsAstralWorld
   {
@@ -143,5 +149,35 @@ public class GameManager : MonoBehaviour
       Destroy(gameObject);
 
     RenderSettings.skybox = Instance._skyMat;
+  }
+
+  public void ShowAction(string actionText)
+  {
+    _action.SetActive(true);
+    _actionText.SetText(actionText);
+  }
+
+  public void HideAction()
+  {
+    _action.SetActive(false);
+  }
+
+  public void ShowMemory(string memoryText)
+  {
+    Time.timeScale = 0f;
+    Player.SetPause(true);
+    UnlockCursor();
+
+    _memory.SetActive(true);
+    _memoryText.SetText(memoryText);
+  }
+
+  public void HideMemory()
+  {
+    Time.timeScale = 1f;
+    Player.SetPause(false);
+    LockCursor();
+
+    _memory.SetActive(false);
   }
 }

@@ -23,6 +23,8 @@ Shader "Custom/WorldObjectTransparentShaderURP"
 		_IsSphereActive ("Is Sphere Active", Range(0, 1)) = 0
 		_SphereRadius ("Sphere Radius", Float) = 0
 		_SphereOrigin ("Sphere Origin", Vector) = (0,0,0,0)
+
+
 	}
 
 	SubShader

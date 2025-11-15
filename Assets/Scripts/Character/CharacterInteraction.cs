@@ -8,20 +8,42 @@ public class CharacterInteraction : MonoBehaviour
   [SerializeField] private bool _showGizmo = true;
   private readonly Collider[] _hits = new Collider[2];
   private Vector3 Center => transform.position + transform.up;
-  private Interactable _interactable;
+
+  private Interactable _interactable = null;
+  private Interactable _lastInteractable = null;
+
+  private MaterialPropertyBlock _mpb;
 
   public bool Interacted => Input.GetKeyDown(_interactionKey);
+  public bool ThereIsAnInteractable() => _interactable != null;
 
-  public bool ThereIsAnInteractable()
+  private void Awake()
+  {
+    _mpb = new MaterialPropertyBlock();
+  }
+
+  private void Update()
   {
     _interactable = GetNearestInteractableObjects();
 
-    return _interactable;
+    if (_interactable == null)
+    {
+      ClearLastHighlight();
+      return;
+    }
+
+    if (_interactable != _lastInteractable)
+    {
+      ClearLastHighlight();
+      TurnHighlightOn(_interactable);
+      _lastInteractable = _interactable;
+    }
   }
 
   public void Interact()
   {
-    _interactable.Interact();
+    if (_interactable != null)
+      _interactable.Interact();
   }
 
   private Interactable GetNearestInteractableObjects()
@@ -33,7 +55,7 @@ public class CharacterInteraction : MonoBehaviour
     for (int i = 0; i < hitCount; i++)
     {
       Collider hit = _hits[i];
-      if (hit.gameObject.TryGetComponent(out Interactable interactable))
+      if (hit.TryGetComponent(out Interactable interactable))
       {
         float distance = Vector3.Distance(Center, hit.transform.position);
         if (distance < shortestDistance)
@@ -44,12 +66,30 @@ public class CharacterInteraction : MonoBehaviour
       }
     }
 
-    if (nearestInteractable == null || nearestInteractable.CompareTag("Staff") && GameManager.Instance.IsAstralWorld > 0)
-      nearestInteractable = null;
+    if (nearestInteractable == null || (nearestInteractable.CompareTag("Staff") && GameManager.Instance.IsAstralWorld > 0))
+        return null;
 
     return nearestInteractable;
   }
 
+  private void TurnHighlightOn(Interactable interactable)
+  {
+    GameManager.Instance.ShowAction("\"F\" Para " + interactable.Action);
+  }
+
+  private void TurnHighlightOff(Interactable _)
+  {
+    GameManager.Instance.HideAction();
+  }
+
+  private void ClearLastHighlight()
+  {
+    if (_lastInteractable != null)
+    {
+      TurnHighlightOff(_lastInteractable);
+      _lastInteractable = null;
+    }
+  }
 
   private void OnDrawGizmosSelected()
   {
