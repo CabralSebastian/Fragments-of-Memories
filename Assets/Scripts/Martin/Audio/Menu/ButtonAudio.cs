@@ -7,7 +7,6 @@ public class ButtonAudio : MonoBehaviour
     [SerializeField] private AudioClip _clickClip;
     [SerializeField] private AudioClip _backClip;
     [SerializeField] private AudioClip _playClip;
-
     private AudioSource _audioSource;
 
     private void Start()
@@ -29,7 +28,6 @@ public class ButtonAudio : MonoBehaviour
     {
         _audioSource.PlayOneShot(_backClip);
     }
-
     public void ClickPlaySound()
     {
         _audioSource.PlayOneShot(_playClip);

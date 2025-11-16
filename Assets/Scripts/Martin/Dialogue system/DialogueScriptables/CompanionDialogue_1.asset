@@ -27,9 +27,9 @@ MonoBehaviour:
     Text: "\xBFFamiliar?"
     clip: {fileID: 0}
   - Speaker: Karelan
-    Text: "As\xED es. Tu eres una bruja y yo tu compa\xF1ero espiritual. Has tenido
-      un accidente mientras explorabas el mundo astral, si pretendes recuperar tus
-      recuerdos primero debes encontrar tu bast\xF3n."
+    Text: "As\xED es. Tu eres una bruja y yo soy Karelan, tu compa\xF1ero espiritual.
+      Has tenido un accidente mientras explorabas el mundo astral, si pretendes recuperar
+      tus recuerdos primero debes encontrar tu bast\xF3n."
     clip: {fileID: 8300000, guid: 3c62b6a63d86d6942863b6cf48d1d91d, type: 3}
   - Speaker: Lyora
     Text: "\xBFC\xF3mo puedo encontrarlo?."
