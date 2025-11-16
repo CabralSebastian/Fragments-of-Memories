@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17baa0a689fa9274fb601339c08e0273, type: 3}
+  m_Name: CompanionDialogue_1
+  m_EditorClassIdentifier: 
+  Lines:
+  - Speaker: Karelan
+    Text: Veo que te has despertado, debes de sentirte mal luego de lo sucedido
+    clip: {fileID: 8300000, guid: ca01857eb5e5472478111e12f4132c81, type: 3}
+  - Speaker: Lyora
+    Text: "\xBFSucedido?, \xBFha pasado algo malo? \xBF y qui\xE9n eres t\xFA?"
+    clip: {fileID: 0}
+  - Speaker: Karelan
+    Text: Mmh parece ser peor de lo que esperaba, no te preocupes, como tu familiar
+      te lo explicare todo
+    clip: {fileID: 8300000, guid: 963bc11ee488faf4dbf0d01182b5a9aa, type: 3}
+  - Speaker: Lyora
+    Text: "\xBFFamiliar?"
+    clip: {fileID: 0}
+  - Speaker: Karelan
+    Text: "As\xED es. Tu eres una bruja y yo tu compa\xF1ero espiritual. Has tenido
+      un accidente mientras explorabas el mundo astral, si pretendes recuperar tus
+      recuerdos primero debes encontrar tu bast\xF3n."
+    clip: {fileID: 8300000, guid: 3c62b6a63d86d6942863b6cf48d1d91d, type: 3}
+  - Speaker: Lyora
+    Text: "\xBFC\xF3mo puedo encontrarlo?."
+    clip: {fileID: 0}
+  - Speaker: Karelan
+    Text: "Yo te guiare. Sigue el camino a tu izquierda, ah\xED lo encontrar\xE1s."
+    clip: {fileID: 8300000, guid: 6887d2099cbe4324ba6b8af6e5018e2d, type: 3}

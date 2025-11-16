@@ -41,7 +41,11 @@ public class CharacterMovement : MonoBehaviour
 
   private void Update()
   {
-    _direction = transform.forward * VerticalAxis + transform.right * HorizontalAxis;
+    if (!DialogueManager.Instance.inputEnabled)
+    {
+        return;
+    }
+        _direction = transform.forward * VerticalAxis + transform.right * HorizontalAxis;
     _direction.Normalize();
 
     if (Jumped)

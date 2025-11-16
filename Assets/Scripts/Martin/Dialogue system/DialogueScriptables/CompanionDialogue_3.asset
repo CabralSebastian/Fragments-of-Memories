@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17baa0a689fa9274fb601339c08e0273, type: 3}
+  m_Name: CompanionDialogue_3
+  m_EditorClassIdentifier: 
+  Lines:
+  - Speaker: Karelan
+    Text: "\xA1Muy bien!, con tu bast\xF3n puedes interactuar con el mundo astral"
+    clip: {fileID: 8300000, guid: 15fd88d75650f39498c039ace9c782e6, type: 3}
+  - Speaker: Lyora
+    Text: "Has dicho que con mi bast\xF3n puedo recuperar mis recuerdos. \xBFC\xF3mo
+      puedo hacerlo?"
+    clip: {fileID: 0}
+  - Speaker: Karelan
+    Text: "Al abandonar el mundo astral durante el accidente, tus recuerdos fueron
+      dispersados y cristalizados en distintos fragmentos, debes encontrarlos con
+      la ayuda de tu bast\xF3n"
+    clip: {fileID: 8300000, guid: a397ce7823979f04d98e4bfa76408d18, type: 3}
+  - Speaker: Karelan
+    Text: He detectado un fragmento cerca, vuelve a donde el camino estaba bloqueado
+      y te explicare como pasar
+    clip: {fileID: 8300000, guid: abf21c92235ff2441ac8b0d3d703812c, type: 3}

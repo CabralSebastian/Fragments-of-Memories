@@ -27,6 +27,7 @@ AudioMixerSnapshotController:
     9cf3f4e2ec6c23b4cafafe55ceb474d2: 1
     fa3145a3dd441974e95f8bbbcfb7e7b0: -80
     8c9711f89ef083a43b86395cd1de6b5e: 0
+    8be0bd6a3b50591619a0dea55f0a0211: 0
     c9083bcdff4699f43b4aee1317a86b58: 22000
   m_TransitionOverrides: {}
 --- !u!243 &-5143901582014074584
@@ -120,6 +121,12 @@ AudioMixerController:
     name: Master
   - guid: 93c3db37195bb704383b2212a1f5f4c6
     name: MasterFreq
+  - guid: 8c9711f89ef083a43b86395cd1de6b5e
+    name: MusicVolume
+  - guid: fe7c0931b01bed94994d9b9ce0b2c3e0
+    name: SFXVolume
+  - guid: 822adeeadd069054c92ea52cdcb8743a
+    name: MyExposedParam
   m_AudioMixerGroupViews:
   - guids:
     - 1c80e8b5646abba1090c7450ed7d83d8

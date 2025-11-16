@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17baa0a689fa9274fb601339c08e0273, type: 3}
+  m_Name: CompanionDialogue_4
+  m_EditorClassIdentifier: 
+  Lines:
+  - Speaker: Karelan
+    Text: Esto es un fruto explosivo, es completamente inofensivo en el mundo real,
+      pero muy inestable en el mundo astral
+    clip: {fileID: 8300000, guid: 165def214f40ebc4abef41a572f9f39c, type: 3}
+  - Speaker: Karelan
+    Text: "Para hacerlo explotar primero deja el bast\xF3n en el suelo y activa s\xEDntesis.
+      Luego agarra y mueve el fruto adentro del \xE1rea"
+    clip: {fileID: 8300000, guid: 995bb6a30a7186547ad3ff937056e9db, type: 3}

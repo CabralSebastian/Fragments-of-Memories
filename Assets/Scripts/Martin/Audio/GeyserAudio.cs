@@ -8,7 +8,6 @@ public class GeyserAudio : MonoBehaviour
 
     private GeyserEruption _geyser;
 
-    //private bool _canPlay = true;
 
     private void Awake()
     {
@@ -18,17 +17,6 @@ public class GeyserAudio : MonoBehaviour
 
     private void Update()
     {
-        /*if (_geyser.IsAstralized && _canPlay)
-        {
-            _audioSource.PlayOneShot(_clip);
-            _canPlay = false;
-        }
-        else if (!_geyser.IsAstralized)
-        {
-            _audioSource.Stop();
-            _canPlay = true;
-        }
-        */
         if (_geyser.IsAstralized)
         {
             _audioSource.enabled = true;

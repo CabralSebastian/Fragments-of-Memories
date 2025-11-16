@@ -750,6 +750,7 @@ GameObject:
   - component: {fileID: 4635490156882618692}
   - component: {fileID: 4648621806424988510}
   - component: {fileID: 2588882006730962242}
+  - component: {fileID: 5040094391955366107}
   - component: {fileID: 1827156558979847763}
   m_Layer: 10
   m_Name: Witch
@@ -957,7 +958,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b3e9cdac26b78934197456d8199e30bc, type: 3}
   - {fileID: 8300000, guid: ddc4973571f36404d95c23401b7d2f12, type: 3}
   - {fileID: 8300000, guid: 8c9f76b14113ab640ab4b94535ad82e3, type: 3}
-  _volume: 0
+  _volume: 0.1
 --- !u!114 &4635490156882618692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,6 +1006,18 @@ MonoBehaviour:
   _audioClip: {fileID: 8300000, guid: 5934db7c9fc489047891eb4f11956b5e, type: 3}
   _grab: {fileID: 8825145902539267920}
   _volume: 0.2
+--- !u!114 &5040094391955366107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6912818742118335949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3ee03b5943da2479b332b87ea983fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &1827156558979847763
 AudioSource:
   m_ObjectHideFlags: 0

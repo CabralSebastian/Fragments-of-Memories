@@ -24,13 +24,4 @@ public class LeavesAudio : MonoBehaviour
             _audioSource.enabled = false;
         }
     }
-
-    /*private IEnumerator WiggleSound()
-    {
-        _audioSource.Play();
-
-        return WaitUntil
- 
-    }
-    */
 }
